@@ -1,0 +1,17 @@
+package-as: Broker_AudioHardware
+
+externals:
+    Libs/LibStub:
+        url: svn://svn.wowace.com/wow/libstub/mainline/trunk
+        tag: latest
+    Libs/CallbackHandler-1.0:
+        url: svn://svn.wowace.com/wow/callbackhandler/mainline/trunk/CallbackHandler-1.0
+        tag: latest
+    Libs/LibDataBroker-1.1:
+        url: git://git.wowace.com/wow/libdatabroker-1-1/mainline.git
+        tag: latest
+
+tools-used:
+    - findglobals
+    
+enable-nolib-creation: no

@@ -1,0 +1,12 @@
+## Title: Broker: Audio Hardware
+## Interface: 50400
+## Author: Choonster
+## Version: @project-version@
+## Notes: Allows you to quickly change the audio output driver used by the game.
+## X-License: MIT License
+
+Libs\LibStub\LibStub.lua
+Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
+Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+
+core.lua
