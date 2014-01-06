@@ -64,7 +64,7 @@ local DataObj = LibStub("LibDataBroker-1.1"):NewDataObject("Broker_AudioHardware
 
 function DataObj:OnClick()
 	UIDropDownMenu_SetSelectedValue(DropDown, GetDriverIndex())
-	ToggleDropDownMenu(nil, nil, DropDown, self:GetName(), 0, -5)
+	ToggleDropDownMenu(nil, nil, DropDown, self, 0, -5)
 end
 
 -- This hook won't for AddOns loaded before this one that create a local reference to SetCVar,
