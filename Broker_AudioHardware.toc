@@ -1,5 +1,5 @@
 ## Title: Broker: Audio Hardware
-## Interface: 60000
+## Interface: 70000
 ## Author: Choonster
 ## Version: @project-version@
 ## Notes: Allows you to quickly change the audio output driver used by the game.
