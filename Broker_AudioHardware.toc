@@ -1,9 +1,12 @@
 ## Title: Broker: Audio Hardware
-## Interface: 70000
+## Interface: 80000
 ## Author: Choonster
 ## Version: @project-version@
 ## Notes: Allows you to quickly change the audio output driver used by the game.
 ## X-License: MIT License
+
+## X-Curse-Project-ID: 71981
+## X-WoWI-ID: 22697
 
 Libs\LibStub\LibStub.lua
 Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
