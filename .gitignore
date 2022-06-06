@@ -215,3 +215,10 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+/.idea/.gitignore
+/.idea/Bears_switcher.iml
+/.idea/deployment.xml
+/.idea/discord.xml
+/.idea/modules.xml
+/.idea/php.xml
+/.idea/vcs.xml

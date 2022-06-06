@@ -1,6 +1,6 @@
-## Title: Broker: Audio Hardware
-## Interface: 80000
-## Author: Choonster
+## Title: Bears: Switcher
+## Interface: 90205
+## Author: N6REJ
 ## Version: @project-version@
 ## Notes: Allows you to quickly change the audio output driver used by the game.
 ## X-License: MIT License
