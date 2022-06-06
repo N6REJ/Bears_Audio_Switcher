@@ -1,15 +1,16 @@
 ## Title: Bears: Switcher
 ## Interface: 90205
-## Author: N6REJ
+## Author: BearLeeAble
 ## Version: @project-version@
 ## Notes: Allows you to quickly change the audio output driver used by the game.
 ## X-License: MIT License
 
-## X-Curse-Project-ID: 71981
-## X-WoWI-ID: 22697
+## X-Curse-Project-ID: 631148
 
-Libs\LibStub\LibStub.lua
-Libs\CallbackHandler-1.0\CallbackHandler-1.0.lua
-Libs\LibDataBroker-1.1\LibDataBroker-1.1.lua
+## DefaultState: enabled
+
+libs/LibStub/LibStub.lua
+libs/CallbackHandler-1.0/CallbackHandler-1.0.lua
+libs/LibDataBroker-1.1/LibDataBroker-1.1.lua
 
 core.lua
