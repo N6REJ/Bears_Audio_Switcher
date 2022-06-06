@@ -9,8 +9,6 @@
 
 ## DefaultState: enabled
 
-libs/LibStub/LibStub.lua
-libs/CallbackHandler-1.0/CallbackHandler-1.0.lua
-libs/LibDataBroker-1.1/LibDataBroker-1.1.lua
+Libs\Libs.xml
 
 core.lua
