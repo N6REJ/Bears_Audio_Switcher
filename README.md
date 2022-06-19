@@ -1,6 +1,6 @@
 About
 ======
-Bears Switcher is a Databroker plugin that allows you to view and change the audio output driver used by the game.
+Bears Audio Switcher is a Databroker plugin that allows you to view and change the audio output driver used by the game.
 
 You can download it from [Curse](http://www.curse.com/addons/wow/broker-audio-hardware) or [WoW Interface](http://www.wowinterface.com/downloads/info22697-BrokerAudioHardware.html).
 
