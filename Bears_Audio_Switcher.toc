@@ -4,11 +4,8 @@
 ## Version: @project-version@
 ## Notes: Allows you to quickly change the audio output driver used by the game.
 ## X-License: MIT License
-
-## X-Curse-Project-ID: 631148
+## X-Curse-Project-ID: xxxxx
 
 ## DefaultState: enabled
-
-Libs\Libs.xml
 
 core.lua
