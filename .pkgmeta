@@ -1,14 +1,16 @@
-package-as: Bears_switcher
+package-as: Bears_Audio_Switcher
 
 ignore:
     - README.md
     - .github
     - .packager
     - .release
+    - .gitignore
+    - .gitattributes
 
 license-output: LICENSE
 
-tools-used:
-    - findglobals
-
 enable-nolib-creation: no
+
+optional-dependencies:
+    - Ace3
