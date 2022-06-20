@@ -1,5 +1,3 @@
---local deviceList = _G[BearsSwitcher]
-
 BearsSwitcher.defaults = {
 	profile = {
 		spkr1 = 0, -- default
@@ -32,7 +30,7 @@ BearsSwitcher.options = {
 					type = "select",
 					order = 3,
 					name = "Speaker Two",
-					values = {deviceList} -- replace with values from db
+					values = {"one", "two"} -- replace with values from db
 				}
 			}
 		}
