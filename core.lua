@@ -1,43 +1,67 @@
--- Get libraries
+BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0", "AceConsole-3.0")
+local AC = LibStub("AceConfig-3.0")
+local ACD = LibStub("AceConfigDialog-3.0")
 
--- Create variables
---------------------------
+function BearsSwitcher:OnInitialize()
+	-- uses the "Default" profile instead of character-specific profiles
+	-- https://www.wowace.com/projects/ace3/pages/api/ace-db-3-0
+	self.db = LibStub("AceDB-3.0"):New("BearsSwitcherDB", self.defaults, true)
 
--- Create array of devices
-local c = "Sound_OutputDriverIndex"
-local n, m = Sound_GameSystem_GetNumOutputDrivers(), GetCVar(c)
-local keybind = "breakkey"
-local keystroke = false
+	-- registers an options table and adds it to the Blizzard options window
+	-- https://www.wowace.com/projects/ace3/pages/api/ace-config-3-0
+	AC:RegisterOptionsTable("BearsSwitcher_Options", self.options)
+	self.optionsFrame = ACD:AddToBlizOptions("BearsSwitcher_Options", "BearsSwitcher (label 1)")
 
-if tonumber(m) >= n - 1 then
-    m = 1
-    -- Only default found
-    SetCVar("Sound_OutputDriverIndex", "0")
-else
-    m = m + 1
+	-- adds a child options table, in this case our profiles panel
+	local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
+	AC:RegisterOptionsTable("BearsSwitcher_Profiles", profiles)
+	ACD:AddToBlizOptions("BearsSwitcher_Profiles", "Profiles", "BearsSwitcher (label 1)")
+
+	-- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
+	self:RegisterChatCommand("bs", "SlashCommand")
+	self:RegisterChatCommand("BearsSwitcher", "SlashCommand")
+
+	self:GetCharacterInfo()
 end
 
--- Create GUI
+function BearsSwitcher:OnEnable()
+	self:RegisterEvent("CHAT_MSG_CHANNEL")
+end
 
--- Get variables from GUI
+function BearsSwitcher:PLAYER_STARTED_MOVING(event)
+	print(event)
+end
 
--- Set keybind ( default = pause/break )
+function BearsSwitcher:CHAT_MSG_CHANNEL(event, text, ...)
+	print(event, text, ...)
+end
 
--- Handles switching devices.
---------------------------------------
+function BearsSwitcher:GetCharacterInfo()
+	-- stores character-specific data
+	self.db.char.level = UnitLevel("player")
+end
 
--- Watch for key stroke
-if (keystroke == keybind) then
-    --[ statement(s) will execute if the boolean expression is true --]
-else
-    --[ statement(s) will execute if the boolean expression is false --]
-
-    -- Switch Sources
-    ---------------------
-    -- Print that source has switched.
-    print(Sound_GameSystem_GetOutputDriverNameByIndex(m))
-    SetCVar(c, m)
-
-    -- push changes to wow
-    AudioOptionsFrame_AudioRestart()
+function BearsSwitcher:SlashCommand(input, editbox)
+	if input == "enable" then
+		self:Enable()
+		self:Print("Enabled.")
+	elseif input == "disable" then
+		-- unregisters all events and calls BearsSwitcher:OnDisable() if you defined that
+		self:Disable()
+		self:Print("Disabled.")
+	elseif input == "message" then
+		print("this is our saved message:", self.db.profile.someInput)
+	else
+		--[[ or as a standalone window
+		if ACD.OpenFrames["BearsSwitcher_Options"] then
+			ACD:Close("BearsSwitcher_Options")
+		else
+			ACD:Open("BearsSwitcher_Options")
+		end
+		]]
+		self:Print("Some useful help message.")
+		-- https://github.com/Stanzilla/WoWUIBugs/issues/89
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+	end
 end
