@@ -30,7 +30,7 @@ BearsSwitcher.options = {
 					type = "select",
 					order = 3,
 					name = "Speaker Two",
-					values = {""} -- replace with values from db
+					values = {"one"} -- replace with values from db
 				}
 			}
 		}

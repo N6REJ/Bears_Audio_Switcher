@@ -25,8 +25,9 @@ end
 function BearsSwitcher:FindDevices(numDevices)
 	-- query audio devices and populate array.
 	for index = 0, numDevices - 1, 1 do
-		print(index, Sound_GameSystem_GetOutputDriverNameByIndex(index))
-		self.db.devices[index] = {Sound_GameSystem_GetOutputDriverNameByIndex(index)}
+		-- print(index, Sound_GameSystem_GetOutputDriverNameByIndex(index))
+		self.db.Devices = Sound_GameSystem_GetOutputDriverNameByIndex(index)
+		print(index, self.db.Devices)
 	end
 end
 
@@ -66,7 +67,7 @@ function BearsSwitcher:SlashCommand(input, editbox)
 		end
 		]]
 		-- Store choices
-		BearsSwitcher:FindDevices(Devices)
+		BearsSwitcher:FindDevices(numDevices)
 		-- We need to tell them what device is being used now.
 		self:Print("Audio Devices changed")
 
