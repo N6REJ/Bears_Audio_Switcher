@@ -8,4 +8,5 @@
 
 ## DefaultState: enabled
 
+libs\load_libs.xml
 core.lua
