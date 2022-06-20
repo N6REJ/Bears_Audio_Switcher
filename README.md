@@ -1,11 +1,15 @@
-About
-======
-Bears Audio Switcher is a Databroker plugin that allows you to view and change the audio output driver used by the game.
+Ace3 example with options panel and slash commands.
+- https://www.wowace.com/projects/ace3/pages/getting-started
+- https://wowpedia.fandom.com/wiki/Ace3_for_Dummies
 
-You can download it from [Curse](http://www.curse.com/addons/wow/broker-audio-hardware) or [WoW Interface](http://www.wowinterface.com/downloads/info22697-BrokerAudioHardware.html).
+![](https://github.com/ketho-wow/BearsSwitcher/raw/master/preview.png)
 
-You can view the source code on [GitHub](https://github.com/N6REJ/Bears_switcher.git and find the latest alpha versions on [CurseForge](http://wow.curseforge.com/addons/broker-audio-hardware/).
+### Folder name
+⚠️ If you downloaded it as a zip, rename the `BearsSwitcher-master` folder to `BearsSwitcher`
 
-Credits
-=======
-Thanks to [Choonster](https://github.com/Choonster-WoW-AddOns/Broker_AudioHardware) for creating the original plugin from which this is forked.
+### About embeds
+The Ace3 libs are hard-embedded for simplicity. For how to soft-embed them, see [BigWigs: Preparing the PackageMeta File](https://github.com/BigWigsMods/packager/wiki/Preparing-the-PackageMeta-File).
+
+To still have a working dev setup you can either:
+* Use the Ace3 libs standalone by dropping the [Ace3](https://www.wowace.com/projects/ace3) addon in the `AddOns` folder and specifying `## OptionalDeps: Ace3` in your TOC.
+* Or exclude your `Libs` folder from the repository with [.gitignore](https://git-scm.com/docs/gitignore).
