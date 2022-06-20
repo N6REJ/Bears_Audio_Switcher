@@ -42,14 +42,6 @@ function BearsSwitcher:GetDevices()
 	end
 end
 
-function BearsSwitcher:OnEnable()
-	self:RegisterEvent("CHAT_MSG_CHANNEL")
-end
-
-function BearsSwitcher:CHAT_MSG_CHANNEL(event, text, ...)
-	print(event, text, ...)
-end
-
 function BearsSwitcher:SlashCommand(input, editbox)
 	if input == "enable" then
 		self:Enable()
