@@ -2,11 +2,11 @@ local addon = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceConsole-3.0"
 
 local BearsSwitcherLDB =
 	LibStub("LibDataBroker-1.1"):NewDataObject(
-	"BearsSwitcher!",
+	"BearsSwitcher",
 	{
 		type = "data source",
-		text = "BearsSwitcher!",
-		icon = "Interface\\Icons\\spell_holy_circleofrenewal",
+		text = "BearsSwitcher",
+		icon = "Interface/AddOns/Bears_Audio_Switcher/media/icon",
 		OnTooltipShow = function(tooltip)
 			local c = "Sound_OutputDriverIndex"
 			local m = GetCVar(c)
@@ -164,7 +164,7 @@ function addon:OnInitialize()
 		end
 	end
 	LibStub("AceConfig-3.0"):RegisterOptionsTable("BearsSwitcher", options)
-	icon:Register("BearsSwitcher!", BearsSwitcherLDB, self.db.profile.minimap)
+	icon:Register("BearsSwitcher", BearsSwitcherLDB, self.db.profile.minimap)
 	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("BearsSwitcher", "BearsSwitcher")
 	self:RegisterChatCommand("sm", "smCommand")
 end
@@ -184,9 +184,9 @@ end
 function addon:SetIconHidden(state)
 	self.db.profile.minimap.hide = state
 	if state then
-		icon:Hide("BearsSwitcher!")
+		icon:Hide("BearsSwitcher")
 	else
-		icon:Show("BearsSwitcher!")
+		icon:Show("BearsSwitcher")
 	end
 end
 

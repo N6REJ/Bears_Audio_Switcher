@@ -211,8 +211,7 @@ pip-log.txt
 #Translations
 *.mo
 
-#Mr Developer
-.mr.developer.cfg
+#Phpstorm
 /.idea/.gitignore
 /.idea/Bears_switcher.iml
 /.idea/deployment.xml
@@ -221,3 +220,6 @@ pip-log.txt
 /.idea/php.xml
 /.idea/vcs.xml
 /.idea/
+
+#Libs
+/Libs/
