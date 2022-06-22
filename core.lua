@@ -104,10 +104,13 @@ function addon:OnInitialize()
 			minimap = {
 				hide = false
 			},
-			devlist = {}
+			devlist = {},
+			switch = {"NUMPADPLUS"}
 		},
 		global = {
-			devlist = {}
+			devlist = {},
+			-- Make Keybind variable name Global
+			switch = {"NUMPADPLUS"}
 		}
 	}
 	local options = {
@@ -115,7 +118,7 @@ function addon:OnInitialize()
 		handler = addon,
 		type = "group",
 		args = {
-			minimap_icon = {
+			map = {
 				name = "Show Minimap Icon",
 				desc = "Show/Hide minimap Icon",
 				type = "toggle",
@@ -126,7 +129,7 @@ function addon:OnInitialize()
 					return not addon:IsIconHidden()
 				end
 			},
-			device_list = {
+			config = {
 				name = "Sound Devices",
 				desc = "Check the devices you want to cycle through when toggling devices",
 				type = "group",
@@ -139,7 +142,7 @@ function addon:OnInitialize()
 		if dev == "None" then
 			dev = "System Default"
 		end
-		options.args.device_list.args["dev" .. i] = {
+		options.args.config.args["dev" .. i] = {
 			name = _cleanDevName(dev),
 			desc = dev,
 			type = "toggle",
@@ -156,14 +159,17 @@ function addon:OnInitialize()
 	-- Obviously you'll need a ## SavedVariables: BearsSwitcherDB line in your TOC, duh!
 	self.db = LibStub("AceDB-3.0"):New("BearsSwitcherDB", defaults, true)
 
-	for k, v in pairs(options.args.device_list.args) do
-		local d = options.args.device_list.args[k].name
+	for k, v in pairs(options.args.config.args) do
+		local d = options.args.config.args[k].name
 		--print ('-->'..d)
 		if self.db.global.devlist[d] == nil then
 			self.db.global.devlist[d] = true
 		end
 	end
-	LibStub("AceConfig-3.0"):RegisterOptionsTable("BearsSwitcher", options)
+
+	local AceConfig = LibStub("AceConfig-3.0")
+	AceConfig:RegisterOptionsTable("BearsSwitcher", options, {"switcher", "bs"})
+
 	icon:Register("BearsSwitcher", BearsSwitcherLDB, self.db.profile.minimap)
 	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("BearsSwitcher", "BearsSwitcher")
 	self:RegisterChatCommand("sm", "smCommand")
@@ -174,7 +180,7 @@ function addon:BearsSwitcherConfig()
 end
 
 function BearsSwitcherHelp()
-	print("Sound Mapper Options")
+	print("Bears Switcher Options")
 	print("  help - this message")
 	print("  show - show minimap button")
 	print("  hide - hide minimap button")
