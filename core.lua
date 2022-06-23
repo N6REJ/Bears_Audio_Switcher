@@ -24,12 +24,10 @@ function BearsSwitcher:OnInitialize()
 
 	-- Let them know the addon is working
 	print("Bears Audio Switcher loaded.  type options type /bs")
-	local spkr1 = BearsSwitcher.db.profile.spkr1
-	local spkr2 = BearsSwitcher.db.profile.spkr2
 end
 
 -- Get devices chosen
-function BearsSwitcher:GetDevices()
+function BearsSwitcher:GetActive()
 	-- Read from profile the devices they want to use and assign them to variables.
 	local x = tonumber(GetCVar("Sound_OutputDriverIndex"))
 	if x == 0 then
@@ -39,16 +37,12 @@ function BearsSwitcher:GetDevices()
 	end
 end
 
--- keybind routines
-function BearsSwitcher:GetKey(key)
+-- keybind routine
+local function GetKey(self, key)
 	-- Get the keybind here
-	print "key is..."
-end
-
--- Get keybind
-function BearsSwitcher:SetKey(key)
-	-- Set the keybind here
-	print "key set"
+	if BearsSwitcher.db.profile.toggle == key then
+		print(self:GetName(), key)
+	end
 end
 
 function BearsSwitcher:SlashCommand(input, editbox)
@@ -67,14 +61,41 @@ function BearsSwitcher:SlashCommand(input, editbox)
 			ACD:Open("BearsSwitcher_Options")
 		end
 		]]
-		-- We need to tell them what device is being used now.
-		self:Print("Audio Devices changed")
-
-		-- Make the device active.
-		Sound_GameSystem_RestartSoundSystem()
-
 		-- https://github.com/Stanzilla/WoWUIBugs/issues/89
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 		InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 	end
 end
+
+-- Check for valid keypress
+local f = CreateFrame("Button")
+f:SetScript(
+	"OnKeyDown",
+	function(self, key)
+		if key == BearsSwitcher.db.profile.toggle then
+			-- Which speaker is active?
+			local cVar = "Sound_OutputDriverIndex"
+			local switch = tonumber(GetCVar(cVar))
+			local spkr1 = BearsSwitcher.db.profile.spkr1
+			local spkr2 = BearsSwitcher.db.profile.spkr2
+			-- print("spkr1=", BearsSwitcher.db.profile.spkr1)
+			-- print("spkr2=", BearsSwitcher.db.profile.spkr2)
+			print("switch is: ", switch)
+			if switch == spkr1 then
+				-- print("set spkr1 active")
+				SetCVar("Sound_OutputDriverIndex", spkr2)
+			else
+				-- print("set spkr2 active")
+				SetCVar("Sound_OutputDriverIndex", spkr1)
+			end
+
+			-- We need to tell them what device is being used now.
+			print("Audio Devices changed.  Speaker ", GetCVar("Sound_OutputDriverIndex"), " active")
+
+			-- Make the device active.
+			AudioOptionsFrame_AudioRestart()
+		end
+
+		self:SetPropagateKeyboardInput(true)
+	end
+)
