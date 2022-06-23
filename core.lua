@@ -1,9 +1,10 @@
 -- Create BearsSwitcher in wow
 BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0", "AceConsole-3.0")
 
---<GLOBALS
+-- Create local variable for globals incase we need them.
 local _G = _G
-local ClearCursor = _G.ClearCursor
+
+-- Locals
 local AC = LibStub("AceConfig-3.0")
 local ACD = LibStub("AceConfigDialog-3.0")
 local speaker1, speaker2
@@ -31,6 +32,9 @@ function BearsSwitcher:OnInitialize()
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
 	self:RegisterChatCommand("bs", "SlashCommand")
 	self:RegisterChatCommand("switcher", "SlashCommand")
+
+	-- Let them know the addon is working
+	print("Bears Audio Switcher loaded.  type options type /bs")
 end
 
 -- Get listing of audio devices available
@@ -54,9 +58,14 @@ function BearsSwitcher:GetDevices()
 	end
 end
 
+-- keybind routines
+function BearsSwitcher:GetKey(key)
+	-- Get the keybind here
+end
+
 -- Get keybind
 function BearsSwitcher:SetKey(key)
-	-- set the keybind here
+	-- Set the keybind here
 end
 
 function BearsSwitcher:SlashCommand(input, editbox)
