@@ -9,11 +9,6 @@ BearsSwitcher.defaults = {
         spkr1 = {}, -- default
         sprk2 = {}, -- Banana
         toggle = "NUMPADPLUS" -- default keypress
-    },
-    global = {
-        devlist = {},
-        -- Make Keybind variable name Global
-        toggle = {"NUMPADPLUS"}
     }
 }
 
@@ -36,25 +31,21 @@ BearsSwitcher.options = {
                     type = "select",
                     order = 1,
                     name = "Speaker One",
-                    values = Devices -- replace with values from db
+                    values = Devices
                 },
                 spkr2 = {
                     type = "select",
                     order = 2,
                     name = "Speaker Two",
-                    values = Devices -- replace with values from db
+                    values = Devices
                 },
                 key = {
                     type = "keybinding",
                     order = 3,
                     name = "Toggle key",
                     desc = "Key to use to switch audio devices",
-                    get = function(info)
-                        return BearsSwitcher.db.profile.toggle
-                    end,
-                    set = function(info, value)
-                        BearsSwitcher.db.profile.toggle = value
-                    end
+                    get = BearsSwitcher:GetKey(),
+                    set = BearsSwitcher:SetKey()
                 }
             }
         }
@@ -62,11 +53,11 @@ BearsSwitcher.options = {
 }
 
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables#title-4-1
-function BearsSwitcher:GetToggle(info)
+function BearsSwitcher:GetValue(info)
     return self.db.profile[info[#info]]
 end
 
-function BearsSwitcher:SetToggle(info, value)
+function BearsSwitcher:SetValue(info, value)
     self.db.profile[info[#info]] = value
 end
 
@@ -76,5 +67,6 @@ function BearsSwitcher:FindDevices(numDevices)
     for index = 0, numDevices - 1, 1 do
         self.db.devices = Sound_GameSystem_GetOutputDriverNameByIndex(index)
         Devices[index] = self.db.devices
+        print(index, self.db.devices)
     end
 end
