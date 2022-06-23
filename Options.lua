@@ -4,12 +4,12 @@ BearsSwitcher.defaults = {
     profile = {
         spkr1 = 0, -- default
         sprk2 = 2, -- Banana
-        key = "NUMPADPLUS" -- default keypress
+        toggle = "NUMPADPLUS" -- default keypress
     },
     global = {
         devlist = {},
         -- Make Keybind variable name Global
-        key = {"NUMPADPLUS"}
+        toggle = {"NUMPADPLUS"}
     }
 }
 
@@ -30,15 +30,23 @@ BearsSwitcher.options = {
             args = {
                 spkr1 = {
                     type = "select",
-                    order = 3,
+                    order = 1,
                     name = "Speaker One",
                     values = {"Apple", "Banana", "Strawberry"} -- replace with values from db
                 },
                 spkr2 = {
                     type = "select",
-                    order = 3,
+                    order = 2,
                     name = "Speaker Two",
                     values = {"one"} -- replace with values from db
+                },
+                key = {
+                    type = "keybinding",
+                    order = 3,
+                    name = "Keybind",
+                    desc = "Key to use to switch audio devices",
+                    get = BearsSwitcher.GetKey(BearsSwitcher.toggle),
+                    set = BearsSwitcher.SetKey(BearsSwitcher.toggle)
                 }
             }
         }
