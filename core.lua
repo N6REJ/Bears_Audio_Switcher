@@ -3,11 +3,11 @@ BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0"
 
 -- Create local variable for globals incase we need them.
 local _G = _G
+local Devices = {}
 
 -- Locals
 local AC = LibStub("AceConfig-3.0")
 local ACD = LibStub("AceConfigDialog-3.0")
-local speaker1, speaker2
 
 function BearsSwitcher:OnInitialize()
 	-- uses the "Default" profile instead of character-specific profiles
