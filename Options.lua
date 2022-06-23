@@ -44,6 +44,9 @@ BearsSwitcher.options = {
                         BearsSwitcher.db.profile.spkr1 = value
                         -- Now that we have a value what do we do with it?
                         print("audio 1 is", value)
+                    end,
+                    get = function(info)
+                        return BearsSwitcher.db.profile.spkr1
                     end
                 },
                 spkr2 = {
@@ -56,6 +59,9 @@ BearsSwitcher.options = {
                         BearsSwitcher.db.profile.spkr2 = value
                         -- Now that we have a value what do we do with it?
                         print("audio 2 is", value)
+                    end,
+                    get = function(info)
+                        return BearsSwitcher.db.profile.spkr2
                     end
                 },
                 key = {
