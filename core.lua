@@ -76,11 +76,11 @@ f:SetScript(
 			-- Which speaker is active?
 			local cVar = "Sound_OutputDriverIndex"
 			local switch = tonumber(GetCVar(cVar))
-			local spkr1 = BearsSwitcher.db.profile.spkr1
-			local spkr2 = BearsSwitcher.db.profile.spkr2
+			local spkr1 = BearsSwitcher.db.profile.spkr1 - 1
+			local spkr2 = BearsSwitcher.db.profile.spkr2 - 1
 			-- print("spkr1=", BearsSwitcher.db.profile.spkr1)
 			-- print("spkr2=", BearsSwitcher.db.profile.spkr2)
-			print("switch is: ", switch)
+			-- print("switch is: ", switch)
 			if switch == spkr1 then
 				-- print("set spkr1 active")
 				SetCVar("Sound_OutputDriverIndex", spkr2)
