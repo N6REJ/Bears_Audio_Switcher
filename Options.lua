@@ -70,7 +70,7 @@ function BearsSwitcher:SetToggle(info, value)
     self.db.profile[info[#info]] = value
 end
 
--- Get listing of audio devices available
+-- Get listing of audio devices available and populate the "Devices" variable with those values so they can be selected.
 function BearsSwitcher:FindDevices(numDevices)
     -- query audio devices and populate array.
     for index = 0, numDevices - 1, 1 do
