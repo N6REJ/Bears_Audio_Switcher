@@ -3,8 +3,6 @@ BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0"
 
 -- Create local variable for globals incase we need them.
 local _G = _G
-local spkr1 = BearsSwitcher.db.profile.spkr1
-local spkr2 = BearsSwitcher.db.profile.spkr2
 
 -- Locals
 local AC = LibStub("AceConfig-3.0")
@@ -26,6 +24,8 @@ function BearsSwitcher:OnInitialize()
 
 	-- Let them know the addon is working
 	print("Bears Audio Switcher loaded.  type options type /bs")
+	local spkr1 = BearsSwitcher.db.profile.spkr1
+	local spkr2 = BearsSwitcher.db.profile.spkr2
 end
 
 -- Get devices chosen

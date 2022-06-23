@@ -5,7 +5,7 @@ function BearsSwitcher:GetDevices()
 
     for index = 0, Sound_GameSystem_GetNumOutputDrivers() - 1, 1 do
         table.insert(Devices, Sound_GameSystem_GetOutputDriverNameByIndex(index))
-        print(index, Devices[#Devices])
+        -- print(index, Devices[#Devices])
     end
     return Devices
 end
@@ -15,7 +15,7 @@ BearsSwitcher.defaults = {
     profile = {
         spkr1 = {}, -- default
         sprk2 = {}, -- Banana
-        toggle = "NUMPADPLUS" -- default keypress
+        toggle = GetBindingText("NUMPADPLUS") -- default keypress
     }
 }
 
@@ -43,7 +43,7 @@ BearsSwitcher.options = {
                     set = function(info, value)
                         BearsSwitcher.db.profile.spkr1 = value
                         -- Now that we have a value what do we do with it?
-                        print("audio 1 is", value)
+                        -- BearsSwitcher.db.profile.spkr1 = value
                     end,
                     get = function(info)
                         return BearsSwitcher.db.profile.spkr1
@@ -58,7 +58,7 @@ BearsSwitcher.options = {
                     set = function(info, value)
                         BearsSwitcher.db.profile.spkr2 = value
                         -- Now that we have a value what do we do with it?
-                        print("audio 2 is", value)
+                        -- BearsSwitcher.db.profile.spkr2 = value
                     end,
                     get = function(info)
                         return BearsSwitcher.db.profile.spkr2
@@ -70,12 +70,12 @@ BearsSwitcher.options = {
                     name = "Toggle key",
                     desc = "Key to use to switch audio devices",
                     get = function(info)
-                        return BearsSwitcher.db.profile.toggle
+                        return GetBindingText(BearsSwitcher.db.profile.toggle)
                     end,
                     set = function(info, value)
                         BearsSwitcher.db.profile.toggle = value
                         -- Now that we have a value what do we do with it?
-                        print("key set", value)
+                        print("Speaker toggle key set to ", GetBindingText(value))
                     end
                 }
             }
