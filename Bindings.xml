@@ -1,0 +1,5 @@
+<Bindings>
+    <Binding name="Keybind">
+        addon:Keybind()
+    </Binding>
+</Bindings>

@@ -1,4 +1,4 @@
-## Title: BearsSwitcher
+## Title: addon
 ## Interface: 90205
 ## Author: BearLeeAble
 ## Version: @project-version@
@@ -6,7 +6,7 @@
 ## X-License: MIT License
 ## X-Curse-Project-ID: xxxxx
 ## X-Wago-ID: xx
-## SavedVariables: BearsSwitcherDB
+## SavedVariables: addonDB
 ## OptionalDeps: Ace3 # if a user wants to run Ace3 standalone
 ## DefaultState: enabled
 

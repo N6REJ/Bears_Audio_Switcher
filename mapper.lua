@@ -1,18 +1,18 @@
-local addon = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceConsole-3.0")
+local addon = LibStub("AceAddon-3.0"):NewAddon("addon", "AceConsole-3.0")
 
-local BearsSwitcherLDB =
+local addonLDB =
 	LibStub("LibDataBroker-1.1"):NewDataObject(
-	"BearsSwitcher",
+	"addon",
 	{
 		type = "data source",
-		text = "BearsSwitcher",
+		text = "addon",
 		icon = "Interface/AddOns/Bears_Audio_Switcher/media/icon",
 		OnTooltipShow = function(tooltip)
 			local c = "Sound_OutputDriverIndex"
 			local m = GetCVar(c)
 			local n = Sound_GameSystem_GetNumOutputDrivers()
 			local t = Sound_GameSystem_GetOutputDriverNameByIndex(m)
-			tooltip:SetText("BearsSwitcher")
+			tooltip:SetText("addon")
 			tooltip:AddLine("|cff0000ff" .. t .. "|r")
 			tooltip:AddLine(" ")
 			tooltip:AddLine("|cffddff00Left Click|r |cff00ff00= Toggle Audio Interfaces|r")
@@ -22,7 +22,7 @@ local BearsSwitcherLDB =
 			if b == "LeftButton" then
 				addon:switchOutputDriver()
 			elseif b == "RightButton" then
-				addon:BearsSwitcherConfig()
+				addon:addonConfig()
 			end
 		end
 	}
@@ -114,7 +114,7 @@ function addon:OnInitialize()
 		}
 	}
 	local options = {
-		name = "BearsSwitcher",
+		name = "addon",
 		handler = addon,
 		type = "group",
 		args = {
@@ -156,8 +156,8 @@ function addon:OnInitialize()
 		}
 	end
 
-	-- Obviously you'll need a ## SavedVariables: BearsSwitcherDB line in your TOC, duh!
-	self.db = LibStub("AceDB-3.0"):New("BearsSwitcherDB", defaults, true)
+	-- Obviously you'll need a ## SavedVariables: addonDB line in your TOC, duh!
+	self.db = LibStub("AceDB-3.0"):New("addonDB", defaults, true)
 
 	for k, v in pairs(options.args.config.args) do
 		local d = options.args.config.args[k].name
@@ -168,18 +168,18 @@ function addon:OnInitialize()
 	end
 
 	local AceConfig = LibStub("AceConfig-3.0")
-	AceConfig:RegisterOptionsTable("BearsSwitcher", options)
+	AceConfig:RegisterOptionsTable("addon", options)
 
-	icon:Register("BearsSwitcher", BearsSwitcherLDB, self.db.profile.minimap)
-	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("BearsSwitcher", "BearsSwitcher")
+	icon:Register("addon", addonLDB, self.db.profile.minimap)
+	self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("addon", "addon")
 	self:RegisterChatCommand("bs", "switcher")
 end
 
-function addon:BearsSwitcherConfig()
+function addon:addonConfig()
 	InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
 end
 
-function BearsSwitcherHelp()
+function addonHelp()
 	print("Bears Switcher Options")
 	print("  help - this message")
 	print("  show - show minimap button")
@@ -190,9 +190,9 @@ end
 function addon:SetIconHidden(state)
 	self.db.profile.minimap.hide = state
 	if state then
-		icon:Hide("BearsSwitcher")
+		icon:Hide("addon")
 	else
-		icon:Show("BearsSwitcher")
+		icon:Show("addon")
 	end
 end
 
@@ -212,9 +212,9 @@ function addon:switcher(args)
 	elseif cmd == "show" then
 		addon:SetIconHidden(false)
 	elseif cmd == "config" then
-		addon:BearsSwitcherConfig()
+		addon:addonConfig()
 	else
-		BearsSwitcherHelp()
+		addonHelp()
 	end
 end
 
