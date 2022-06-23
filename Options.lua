@@ -40,7 +40,7 @@ BearsSwitcher.options = {
                     order = 1,
                     name = "Speaker One",
                     style = "radio",
-                    values = {"bananas", "rice"}
+                    values = BearsSwitcher:GetDevices()
                 },
                 spkr2 = {
                     type = "select",
