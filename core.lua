@@ -1,7 +1,10 @@
-BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("addon", "AceEvent-3.0", "AceConsole-3.0")
-local addonName = "AdiBags"
-local addon = LibStub("AceAddon-3.0"):GetAddon(addonName)
-local L = addon.L
+-- Create BearsSwitcher in wow
+BearsSwitcher = LibStub("AceBearsSwitcher-3.0"):NewBearsSwitcher("BearsSwitcher", "AceEvent-3.0", "AceConsole-3.0")
+
+-- Locals
+local BearsSwitcherName = "AdiBags"
+local BearsSwitcher = LibStub("AceBearsSwitcher-3.0"):GetBearsSwitcher(BearsSwitcherName)
+local L = BearsSwitcher.L
 
 --<GLOBALS
 local _G = _G
@@ -11,79 +14,38 @@ local ACD = LibStub("AceConfigDialog-3.0")
 local speaker1, speaker2
 local numDevices = Sound_GameSystem_GetNumOutputDrivers()
 
-addon.defaults = {
-	profile = {
-		spkr1 = 0, -- default
-		sprk2 = 2, -- Banana
-		key = "NUMPADPLUS" -- default keypress
-	}
-}
-
--- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables
-addon.options = {
-	type = "group",
-	name = "Bears Audio Switcher",
-	handler = addon,
-	args = {
-		group1 = {
-			type = "group",
-			order = 3,
-			name = "Audio Devices",
-			inline = true,
-			-- getters/setters can be inherited through the table tree
-			get = "GetValue",
-			set = "SetValue",
-			args = {
-				spkr1 = {
-					type = "select",
-					order = 3,
-					name = "Speaker One",
-					values = {"Apple", "Banana", "Strawberry"} -- replace with values from db
-				},
-				spkr2 = {
-					type = "select",
-					order = 3,
-					name = "Speaker Two",
-					values = {"one"} -- replace with values from db
-				},
-				key = {
-					SetKey = addon:SetKey(addon.key),
-					GetKey = addon.key
-				}
-			}
-		}
-	}
-}
-
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables#title-4-1
-function addon:GetValue(info)
+function BearsSwitcher:GetValue(info)
 	self.db.profile[info[#info]] = self.spkr2
 	print("The " .. info[#info] .. " was set to: " .. tostring(self.spkr2))
 	return self.db.profile[info[#info]]
 end
 
-function addon:SetValue(info, value)
+function BearsSwitcher:SetValue(info, value)
 	self.db.profile[info[#info]] = value
 end
 
-function addon:OnInitialize()
+function BearsSwitcher:OnInitialize()
 	-- uses the "Default" profile instead of character-specific profiles
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-db-3-0
-	self.db = LibStub("AceDB-3.0"):New("addonDB", self.defaults, true)
+	self.db = LibStub("AceDB-3.0"):New("BearsSwitcherDB", self.defaults, true)
 
 	-- registers an options table and adds it to the Blizzard options window
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-config-3-0
-	AC:RegisterOptionsTable("addon_Options", self.options)
-	self.optionsFrame = ACD:AddToBlizOptions("addon_Options", "Bears Audio Switcher")
+	AC:RegisterOptionsTable("BearsSwitcher_Options", self.options)
+	self.optionsFrame = ACD:AddToBlizOptions("BearsSwitcher_Options", "Bears Audio Switcher")
 
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
 	self:RegisterChatCommand("bs", "SlashCommand")
 
 	-- Get profile settings
+	if self.db ~= nil then
+		self:CreateInterfaceOptions()
+	end
 end
 
 -- Get listing of audio devices available
-function addon:FindDevices(numDevices)
+function BearsSwitcher:FindDevices(numDevices)
 	-- query audio devices and populate array.
 	for index = 0, numDevices - 1, 1 do
 		-- print(index, Sound_GameSystem_GetOutputDriverNameByIndex(index))
@@ -93,7 +55,7 @@ function addon:FindDevices(numDevices)
 end
 
 -- Get devices chosen
-function addon:GetDevices()
+function BearsSwitcher:GetDevices()
 	-- Read from profile the devices they want to use and assign them to variables.
 	local x = tonumber(GetCVar("Sound_OutputDriverIndex"))
 	if x == 0 then
@@ -104,28 +66,28 @@ function addon:GetDevices()
 end
 
 -- Get keybind
-function addon:SetKey(key)
+function BearsSwitcher:SetKey(key)
 	-- set the keybind here
 end
 
-function addon:SlashCommand(input, editbox)
+function BearsSwitcher:SlashCommand(input, editbox)
 	if input == "enable" then
 		self:Enable()
 		self:Print("Enabled.")
 	elseif input == "disable" then
-		-- unregisters all events and calls addon:OnDisable() if you defined that
+		-- unregisters all events and calls BearsSwitcher:OnDisable() if you defined that
 		self:Disable()
 		self:Print("Disabled.")
 	else
 		--[[ or as a standalone window
-		if ACD.OpenFrames["addon_Options"] then
-			ACD:Close("addon_Options")
+		if ACD.OpenFrames["BearsSwitcher_Options"] then
+			ACD:Close("BearsSwitcher_Options")
 		else
-			ACD:Open("addon_Options")
+			ACD:Open("BearsSwitcher_Options")
 		end
 		]]
 		-- Store choices
-		addon:FindDevices(numDevices)
+		BearsSwitcher:FindDevices(numDevices)
 		-- We need to tell them what device is being used now.
 		self:Print("Audio Devices changed")
 
