@@ -1,12 +1,11 @@
 -- Get listing of audio devices available and populate the "Devices" variable with those values so they can be selected.
 function BearsSwitcher:GetDevices()
-    local Devices = {}
-    local numDevices = Sound_GameSystem_GetNumOutputDrivers()
-
     -- query audio devices and populate array.
-    for index = 0, numDevices - 1, 1 do
+    local Devices = {}
+
+    for index = 0, Sound_GameSystem_GetNumOutputDrivers() - 1, 1 do
         table.insert(Devices, Sound_GameSystem_GetOutputDriverNameByIndex(index))
-        print(Devices[#Devices])
+        print(index, Devices[#Devices])
     end
     return Devices
 end
@@ -40,14 +39,24 @@ BearsSwitcher.options = {
                     order = 1,
                     name = "Speaker One",
                     style = "radio",
-                    values = BearsSwitcher:GetDevices()
+                    values = BearsSwitcher:GetDevices(),
+                    set = function(info, value)
+                        BearsSwitcher.db.profile.spkr1 = value
+                        -- Now that we have a value what do we do with it?
+                        print("audio 1 is", value)
+                    end
                 },
                 spkr2 = {
                     type = "select",
                     order = 2,
                     name = "Speaker Two",
                     style = "radio",
-                    values = BearsSwitcher:GetDevices()
+                    values = BearsSwitcher:GetDevices(),
+                    set = function(info, value)
+                        BearsSwitcher.db.profile.spkr2 = value
+                        -- Now that we have a value what do we do with it?
+                        print("audio 2 is", value)
+                    end
                 },
                 key = {
                     type = "keybinding",
