@@ -3,21 +3,12 @@ BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0"
 
 -- Create local variable for globals incase we need them.
 local _G = _G
+local toggle = BearsSwitcher.toggle
 
 -- Locals
 local AC = LibStub("AceConfig-3.0")
 local ACD = LibStub("AceConfigDialog-3.0")
 local speaker1, speaker2
-local numDevices = Sound_GameSystem_GetNumOutputDrivers()
-
--- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables#title-4-1
-function BearsSwitcher:GetValue(info)
-	return self.db.profile[info[#info]]
-end
-
-function BearsSwitcher:SetValue(info, value)
-	self.db.profile[info[#info]] = value
-end
 
 function BearsSwitcher:OnInitialize()
 	-- uses the "Default" profile instead of character-specific profiles
@@ -37,16 +28,6 @@ function BearsSwitcher:OnInitialize()
 	print("Bears Audio Switcher loaded.  type options type /bs")
 end
 
--- Get listing of audio devices available
-function BearsSwitcher:FindDevices(numDevices)
-	-- query audio devices and populate array.
-	for index = 0, numDevices - 1, 1 do
-		-- print(index, Sound_GameSystem_GetOutputDriverNameByIndex(index))
-		self.db.Devices = Sound_GameSystem_GetOutputDriverNameByIndex(index)
-		print(index, self.db.Devices)
-	end
-end
-
 -- Get devices chosen
 function BearsSwitcher:GetDevices()
 	-- Read from profile the devices they want to use and assign them to variables.
@@ -61,11 +42,13 @@ end
 -- keybind routines
 function BearsSwitcher:GetKey(key)
 	-- Get the keybind here
+	print "key is..."
 end
 
 -- Get keybind
 function BearsSwitcher:SetKey(key)
 	-- Set the keybind here
+	print "key set"
 end
 
 function BearsSwitcher:SlashCommand(input, editbox)

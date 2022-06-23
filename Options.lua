@@ -1,9 +1,13 @@
+-- Set local
+local numDevices = Sound_GameSystem_GetNumOutputDrivers()
+local Devices = {}
+
 -- Set our options used in interface here
 
 BearsSwitcher.defaults = {
     profile = {
-        spkr1 = 0, -- default
-        sprk2 = 2, -- Banana
+        spkr1 = {}, -- default
+        sprk2 = {}, -- Banana
         toggle = "NUMPADPLUS" -- default keypress
     },
     global = {
@@ -32,21 +36,25 @@ BearsSwitcher.options = {
                     type = "select",
                     order = 1,
                     name = "Speaker One",
-                    values = {"Apple", "Banana", "Strawberry"} -- replace with values from db
+                    values = Devices -- replace with values from db
                 },
                 spkr2 = {
                     type = "select",
                     order = 2,
                     name = "Speaker Two",
-                    values = {"one"} -- replace with values from db
+                    values = Devices -- replace with values from db
                 },
                 key = {
                     type = "keybinding",
                     order = 3,
-                    name = "Keybind",
+                    name = "Toggle key",
                     desc = "Key to use to switch audio devices",
-                    get = BearsSwitcher.GetKey(BearsSwitcher.toggle),
-                    set = BearsSwitcher.SetKey(BearsSwitcher.toggle)
+                    get = function(info)
+                        return BearsSwitcher.db.profile.toggle
+                    end,
+                    set = function(info, value)
+                        BearsSwitcher.db.profile.toggle = value
+                    end
                 }
             }
         }
@@ -54,10 +62,19 @@ BearsSwitcher.options = {
 }
 
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables#title-4-1
-function BearsSwitcher:GetValue(info)
+function BearsSwitcher:GetToggle(info)
     return self.db.profile[info[#info]]
 end
 
-function BearsSwitcher:SetValue(info, value)
+function BearsSwitcher:SetToggle(info, value)
     self.db.profile[info[#info]] = value
+end
+
+-- Get listing of audio devices available
+function BearsSwitcher:FindDevices(numDevices)
+    -- query audio devices and populate array.
+    for index = 0, numDevices - 1, 1 do
+        self.db.devices = Sound_GameSystem_GetOutputDriverNameByIndex(index)
+        Devices[index] = self.db.devices
+    end
 end
