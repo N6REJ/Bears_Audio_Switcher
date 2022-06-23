@@ -1,10 +1,5 @@
 -- Create BearsSwitcher in wow
-BearsSwitcher = LibStub("AceBearsSwitcher-3.0"):NewBearsSwitcher("BearsSwitcher", "AceEvent-3.0", "AceConsole-3.0")
-
--- Locals
-local BearsSwitcherName = "AdiBags"
-local BearsSwitcher = LibStub("AceBearsSwitcher-3.0"):GetBearsSwitcher(BearsSwitcherName)
-local L = BearsSwitcher.L
+BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0", "AceConsole-3.0")
 
 --<GLOBALS
 local _G = _G
@@ -16,8 +11,6 @@ local numDevices = Sound_GameSystem_GetNumOutputDrivers()
 
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables#title-4-1
 function BearsSwitcher:GetValue(info)
-	self.db.profile[info[#info]] = self.spkr2
-	print("The " .. info[#info] .. " was set to: " .. tostring(self.spkr2))
 	return self.db.profile[info[#info]]
 end
 
@@ -32,16 +25,12 @@ function BearsSwitcher:OnInitialize()
 
 	-- registers an options table and adds it to the Blizzard options window
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-config-3-0
-	AC:RegisterOptionsTable("BearsSwitcher_Options", self.options)
+	AC:RegisterOptionsTable("BearsSwitcher_Options", BearsSwitcher.options)
 	self.optionsFrame = ACD:AddToBlizOptions("BearsSwitcher_Options", "Bears Audio Switcher")
 
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
 	self:RegisterChatCommand("bs", "SlashCommand")
-
-	-- Get profile settings
-	if self.db ~= nil then
-		self:CreateInterfaceOptions()
-	end
+	self:RegisterChatCommand("switcher", "SlashCommand")
 end
 
 -- Get listing of audio devices available

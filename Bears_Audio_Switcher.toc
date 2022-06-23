@@ -22,9 +22,7 @@ Libs\AceConsole-3.0\AceConsole-3.0.xml
 Libs\AceGUI-3.0\AceGUI-3.0.xml
 Libs\AceConfig-3.0\AceConfig-3.0.xml
 Libs\LibDBIcon-1.0\lib.xml
-Lib\AceLocale-3.0\AceLocale-3.0.xml
 #@end-no-lib-strip@
 
-Locales\Locale.xml
 core.lua
-Interface.lua
+Options.lua
