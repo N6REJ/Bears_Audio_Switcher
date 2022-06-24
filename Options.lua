@@ -5,7 +5,7 @@ function BearsSwitcher:GetDevices()
 
     for index = 0, Sound_GameSystem_GetNumOutputDrivers() - 1, 1 do
         table.insert(Devices, Sound_GameSystem_GetOutputDriverNameByIndex(index))
-        print(index, Devices[#Devices])
+        --print(index, Devices[#Devices])
     end
     return Devices
 end
@@ -15,7 +15,8 @@ BearsSwitcher.defaults = {
     profile = {
         spkr1 = {}, -- default
         sprk2 = {}, -- Banana
-        toggle = GetBindingText("NUMPADPLUS") -- default keypress
+        toggle = GetBindingText("NUMPADPLUS"), -- default keypress
+        Devices = {}
     }
 }
 
