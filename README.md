@@ -5,7 +5,7 @@
 [![GitHub release](https://img.shields.io/github/release/N6REJ/Bears_Audio_Switcher.svg)](https://GitHub.com/N6REJ/Bears_Audio_Switcher/releases/)
 
 ![Shadowlands](https://img.shields.io/badge/Supports-Shadowlands-0B68D7)
-![9.2](https://img.shields.io/badge/Ready_for-9.2-darkgreen)
+![9.2.5](https://img.shields.io/badge/Ready_for-9.2.5-darkgreen)
 [![curse](https://img.shields.io/badge/Curseforge_Project_ID:-446518-purple)](https://www.curseforge.com/wow/addons/Bears_Audio_Switcher)
 
 
