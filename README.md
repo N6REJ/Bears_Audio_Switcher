@@ -14,5 +14,6 @@ Simple WoW ACE3 addon to help switch audio devices rapidly
 Uses keybind to toggle thru the audio output devices selected in config.
 
 <img width="328" alt="config-change" src="https://user-images.githubusercontent.com/1850089/175459116-c95e84a8-fe0c-4f5b-a8e5-5b9691c0ca16.png">
+
 ![options](https://user-images.githubusercontent.com/1850089/175459644-2a0125b5-adca-4dce-918d-8499628b3226.jpg)
 
