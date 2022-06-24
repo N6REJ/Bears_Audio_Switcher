@@ -4,8 +4,8 @@
 ## Version: @project-version@
 ## Notes: Allows you to quickly change the audio output driver used by the game.
 ## X-License: MIT License
-## X-Curse-Project-ID: xxxxx
-## X-Wago-ID: xx
+## X-Curse-Project-ID: 631148
+## X-Wago-ID: qv63lnKb
 ## SavedVariables: BearsSwitcherDB
 ## OptionalDeps: Ace3 # if a user wants to run Ace3 standalone
 ## DefaultState: enabled
