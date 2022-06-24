@@ -10,11 +10,8 @@ group:
       - source: .github/labels.yml
       - LICENSE
       - favicon.ico
-      - .gitignore
       - source: .packager/
         dest: .packager/
-      - source: img/logo.jpg
-        deleteOrphaned: true
     repos: |
       N6REJ/AdiBags_Queens_Conservatory
       N6REJ/AdiBags_Shadowlands_Blacksmithing
