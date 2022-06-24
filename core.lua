@@ -23,7 +23,7 @@ function BearsSwitcher:OnInitialize()
 	self:RegisterChatCommand("switcher", "SlashCommand")
 
 	-- Let them know the addon is working
-	print("Bears Audio Switcher loaded.  for options type /bs")
+	print("|cff00FF00Bears Audio Switcher loaded.  For options type /bs|r")
 end
 
 function BearsSwitcher:SlashCommand(input, editbox)
