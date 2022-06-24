@@ -23,7 +23,7 @@ function BearsSwitcher:OnInitialize()
 	self:RegisterChatCommand("switcher", "SlashCommand")
 
 	-- Let them know the addon is working
-	print("Bears Audio Switcher loaded.  type options type /bs")
+	print("Bears Audio Switcher loaded.  for options type /bs")
 end
 
 function BearsSwitcher:SlashCommand(input, editbox)
@@ -77,9 +77,12 @@ f:SetScript(
 			-- Find out current device so we can tell them what it is.
 			cVar = "Sound_OutputDriverIndex"
 			current = tonumber(GetCVar(cVar))
-			-- We need to tell them what device is being used now.
-			--		print("Audio Devices changed.  Speaker ", Sound_ChatSystem_GetOutputDriverNameByIndex(current), " active")
-			print("Audio Devices changed:  Speaker ", Sound_GameSystem_GetOutputDriverNameByIndex(current), " active")
+			print(
+				"|cff00FF00Audio Devices changed:|r",
+				"|cffe3ff00Speaker",
+				Sound_GameSystem_GetOutputDriverNameByIndex(current),
+				"|r|cff00FF00 active|r"
+			)
 		end
 
 		self:SetPropagateKeyboardInput(true)

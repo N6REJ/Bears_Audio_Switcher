@@ -44,7 +44,11 @@ BearsSwitcher.options = {
                     set = function(info, value)
                         BearsSwitcher.db.profile.spkr1 = value
                         -- Now that we have a value what do we do with it?
-                        print("Speaker 1 set to ", Sound_GameSystem_GetOutputDriverNameByIndex(value - 1))
+                        print(
+                            "|cff00FF00Speaker 1 set to: |r|cffe3ff00 ",
+                            Sound_GameSystem_GetOutputDriverNameByIndex(value - 1),
+                            "|r"
+                        )
                     end,
                     get = function(info)
                         return BearsSwitcher.db.profile.spkr1
@@ -59,7 +63,11 @@ BearsSwitcher.options = {
                     set = function(info, value)
                         BearsSwitcher.db.profile.spkr2 = value
                         -- Now that we have a value what do we do with it?
-                        print("Speaker 2 set to ", Sound_GameSystem_GetOutputDriverNameByIndex(value - 1))
+                        print(
+                            "|cff00FF00Speaker 2 set to: |r|cffe3ff00 ",
+                            Sound_GameSystem_GetOutputDriverNameByIndex(value - 1),
+                            "|r"
+                        )
                         -- BearsSwitcher.db.profile.spkr2 = value
                     end,
                     get = function(info)
@@ -77,7 +85,7 @@ BearsSwitcher.options = {
                     set = function(info, value)
                         BearsSwitcher.db.profile.toggle = value
                         -- Now that we have a value what do we do with it?
-                        print("Speaker toggle key set to ", GetBindingText(value))
+                        print("|cff00FF00Speaker toggle key set to: |r|cffe3ff00 ", GetBindingText(value), "|r")
                     end
                 }
             }

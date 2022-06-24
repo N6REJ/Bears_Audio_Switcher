@@ -1,4 +1,0 @@
-<Bindings>
-	<Binding name="Togglekey" description="keypress to switch audio device" default="NUMPADPLUS">
-	</Binding>
-</Bindings>
