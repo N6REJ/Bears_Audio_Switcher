@@ -1,8 +1,8 @@
 # Bear's Audio Switcher
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![Size](https://img.shields.io/github/repo-size/N6REJ/Bears_audio_switcher) 
-[![Build Curse Release](https://github.com/N6REJ/AdiBags_Queens_Conservatory/actions/workflows/action.yml/badge.svg)](https://github.com/N6REJ/AdiBags_Queens_Conservatory/actions/workflows/action.yml) 
-[![GitHub release](https://img.shields.io/github/release/N6REJ/Bears_audio_switcher.svg)](https://GitHub.com/N6REJ/AdiBags_Queens_Conservatory/releases/)
+[![Build Curse Release](https://github.com/N6REJ/Bears_audio_switcher/actions/workflows/action.yml/badge.svg)](https://github.com/N6REJ/Bears_audio_switcher/actions/workflows/action.yml) 
+[![GitHub release](https://img.shields.io/github/release/N6REJ/Bears_audio_switcher.svg)](https://GitHub.com/N6REJ/Bears_audio_switcher/releases/)
 
 ![Shadowlands](https://img.shields.io/badge/Supports-Shadowlands-0B68D7)
 ![9.2](https://img.shields.io/badge/Ready_for-9.2-darkgreen)
