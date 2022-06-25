@@ -18,6 +18,11 @@ function BearsSwitcher:OnInitialize()
 	AC:RegisterOptionsTable("BearsSwitcher_Options", BearsSwitcher.options)
 	self.optionsFrame = ACD:AddToBlizOptions("BearsSwitcher_Options", "Bears Audio Switcher")
 
+	-- adds a child options table, in this case our profiles panel
+	local profiles = LibStub("AceDBOptions-3.0"):GetOptionsTable(self.db)
+	AC:RegisterOptionsTable("BearsSwitcher_Profiles", profiles)
+	ACD:AddToBlizOptions("BearsSwitcher_Profiles", "Profiles", "Bears Audio Switcher")
+
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
 	self:RegisterChatCommand("bs", "SlashCommand")
 	self:RegisterChatCommand("switcher", "SlashCommand")
@@ -39,6 +44,12 @@ function BearsSwitcher:OnInitialize()
 
 	-- Let them know the addon is working
 	print("|cff00FF00Bears Audio Switcher loaded.  For options type /bs|r")
+end
+
+-- Let them use profiles
+function BearsSwitcher:GetCharacterInfo()
+	-- stores character-specific data
+	self.db.char.level = UnitLevel("player")
 end
 
 function BearsSwitcher:SlashCommand(input, editbox)
