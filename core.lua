@@ -31,7 +31,7 @@ function BearsSwitcher:OnInitialize()
 	local defaults = {
 		volumeUp = GetBindingText("NUMPADPLUS"),
 		volumeDown = GetBindingText("NUMPADMINUS"),
-		volumeSteps = .1,
+		volumeSteps = 1,
 		toggle = GetBindingText("NUMPADMULTIPLY"),
 		enableSound = true
 	}
@@ -81,7 +81,12 @@ local SOUND_MASTERVOLUME_STEP = .1
 
 -- VOLUME CONTROLS
 local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
+	-- Set volume to 0-1 range instead of 0-100
+	local SOUND_MASTERVOLUME_STEP = SOUND_MASTERVOLUME_STEP / 100
+
+	-- Get current volume level from 0 - 1
 	local volume = tonumber(GetCVar("Sound_MasterVolume"))
+
 	if (volume) then
 		volume = volume + SOUND_MASTERVOLUME_STEP
 
@@ -100,11 +105,15 @@ local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
 end
 
 function VolumeUp()
-	AdjustMasterVolume(BearsSwitcher.db.profile.volumeStep)
+	AdjustMasterVolume(BearsSwitcher.db.profile.volumeSteps)
 end
 
 function VolumeDown()
-	AdjustMasterVolume(BearsSwitcher.db.profile.volumeStep * -1)
+	print("Steps = ", BearsSwitcher.db.profile.volumeSteps)
+	-- add -1 to compensate for 0
+	--BearsSwitcher.db.profile.volumeSteps = BearsSwitcher.db.profile.volumeSteps - 1
+
+	AdjustMasterVolume(-BearsSwitcher.db.profile.volumeSteps)
 end
 
 -- Check for valid keypress

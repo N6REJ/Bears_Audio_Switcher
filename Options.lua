@@ -1,5 +1,3 @@
-local DefaultVolumeSteps = .1
-
 -- Get listing of audio devices available and populate the "Devices" variable with those values so they can be selected.
 function BearsSwitcher:GetDevices()
     -- query audio devices and populate array.
@@ -21,7 +19,7 @@ BearsSwitcher.defaults = {
         Devices = {},
         volumeUp = GetBindingText("NUMPADPLUS"),
         volumeDown = GetBindingText("NUMPADMINUS"),
-        volumeSteps = .1,
+        volumeSteps = 1,
         enableSound = true
     }
 }
@@ -149,11 +147,15 @@ BearsSwitcher.options = {
                     order = 1,
                     name = "Volume steps",
                     -- this will look for a getter/setter on our handler object
-                    get = "GetVolumeSteps",
-                    set = "SetVolumeSteps",
-                    min = .01,
-                    max = 1,
-                    step = DefaultVolumeSteps
+                    get = function(info)
+                        return BearsSwitcher.db.profile.volumeSteps
+                    end,
+                    set = function(info, value)
+                        BearsSwitcher.db.profile.volumeSteps = value
+                    end,
+                    min = 0,
+                    max = 100,
+                    step = 1
                 },
                 enableSound = {
                     type = "toggle",
@@ -183,9 +185,9 @@ function BearsSwitcher:SetValue(info, value)
 end
 
 function BearsSwitcher:GetVolumeSteps(info)
-    return self.db.profile.volumeStep
+    return self.db.profile.volumeSteps
 end
 
 function BearsSwitcher:SetVolumeSteps(info, value)
-    self.db.profile.volumeStep = value
+    self.db.profile.volumeSteps = value
 end
