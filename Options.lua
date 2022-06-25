@@ -1,4 +1,4 @@
-local DefaultVolumeSteps = .01
+local DefaultVolumeSteps = .1
 
 -- Get listing of audio devices available and populate the "Devices" variable with those values so they can be selected.
 function BearsSwitcher:GetDevices()
