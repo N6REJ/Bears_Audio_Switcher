@@ -147,12 +147,8 @@ BearsSwitcher.options = {
                     order = 1,
                     name = "Volume steps",
                     -- this will look for a getter/setter on our handler object
-                    get = function(info)
-                        return BearsSwitcher.db.profile.volumeSteps
-                    end,
-                    set = function(info, value)
-                        BearsSwitcher.db.profile.volumeSteps = value
-                    end,
+                    get = "GetVolumeSteps",
+                    set = "SetVolumeSteps",
                     min = 0,
                     max = 100,
                     step = 1
