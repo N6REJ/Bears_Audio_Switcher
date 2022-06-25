@@ -74,11 +74,6 @@ function BearsSwitcher:SlashCommand(input, editbox)
 	end
 end
 
--- Volume variables.
-local SOUND_MASTERVOLUME_STEP = .1
---local SOUND_MASTERVOLUME_STEP = BearsSwitcher.db.profile.volumeSteps
---local enableSound = BearsSwitcher.db.profile.enableSound
-
 -- VOLUME CONTROLS
 local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
 	-- Set volume to 0-1 range instead of 0-100
@@ -109,10 +104,9 @@ function VolumeUp()
 end
 
 function VolumeDown()
-	print("Steps = ", BearsSwitcher.db.profile.volumeSteps)
-	-- add -1 to compensate for 0
-	--BearsSwitcher.db.profile.volumeSteps = BearsSwitcher.db.profile.volumeSteps - 1
-
+	local volume = tonumber(GetCVar("Sound_MasterVolume"))
+	print("Volume is at ", volume)
+	print("steps =", BearsSwitcher.db.profile.volumeSteps)
 	AdjustMasterVolume(-BearsSwitcher.db.profile.volumeSteps)
 end
 
