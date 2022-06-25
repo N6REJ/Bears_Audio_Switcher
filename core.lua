@@ -1,7 +1,7 @@
 -- Create BearsSwitcher in wow
 BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0", "AceConsole-3.0")
 
--- Create local variable for globals incase we need them.
+-- Create local variable for profiles incase we need them.
 local _G = _G
 
 -- Locals
@@ -9,7 +9,7 @@ local AC = LibStub("AceConfig-3.0")
 local ACD = LibStub("AceConfigDialog-3.0")
 
 function BearsSwitcher:OnInitialize()
-	-- uses the "Default" global instead of character-specific globals
+	-- uses the "Default" profile instead of character-specific profiles
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-db-3-0
 	self.db = LibStub("AceDB-3.0"):New("BearsSwitcherDB", self.defaults, true)
 
@@ -21,6 +21,21 @@ function BearsSwitcher:OnInitialize()
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
 	self:RegisterChatCommand("bs", "SlashCommand")
 	self:RegisterChatCommand("switcher", "SlashCommand")
+
+	-- We need to set some defaults to use if they've not set things up before.
+	local defaults = {
+		volumeUp = GetBindingText("NUMPADPLUS"),
+		volumeDown = GetBindingText("NUMPADMINUS"),
+		volumeSteps = .1,
+		toggle = GetBindingText("NUMPADMULTIPLY"),
+		enableSound = true
+	}
+
+	for key, value in pairs(defaults) do
+		if BearsSwitcher.db.profile[key] == nil then
+			BearsSwitcher.db.profile[key] = value
+		end
+	end
 
 	-- Let them know the addon is working
 	print("|cff00FF00Bears Audio Switcher loaded.  For options type /bs|r")
@@ -50,8 +65,8 @@ end
 
 -- Volume variables.
 local SOUND_MASTERVOLUME_STEP = .1
---local SOUND_MASTERVOLUME_STEP = BearsSwitcher.db.global.volumeSteps
---local enableSound = BearsSwitcher.db.global.enableSound
+--local SOUND_MASTERVOLUME_STEP = BearsSwitcher.db.profile.volumeSteps
+--local enableSound = BearsSwitcher.db.profile.enableSound
 
 -- VOLUME CONTROLS
 local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
@@ -61,7 +76,7 @@ local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
 
 		if (volume >= 1.0) then
 			volume = 1.0
-			if BearsSwitcher.db.global.enableSound == true then
+			if BearsSwitcher.db.profile.enableSound == true then
 				-- Sound to let them know the valume is maxed
 				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\100.ogg")
 			end
@@ -74,11 +89,11 @@ local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
 end
 
 function VolumeUp()
-	AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
+	AdjustMasterVolume(BearsSwitcher.db.profile.volumeStep)
 end
 
 function VolumeDown()
-	AdjustMasterVolume(SOUND_MASTERVOLUME_STEP * -1)
+	AdjustMasterVolume(BearsSwitcher.db.profile.volumeStep * -1)
 end
 
 -- Check for valid keypress
@@ -86,16 +101,16 @@ local f = CreateFrame("Button")
 f:SetScript(
 	"OnKeyDown",
 	function(self, key)
-		if key == BearsSwitcher.db.global.toggle then
+		if key == BearsSwitcher.db.profile.toggle then
 			-- Check for volume up or down
 			-- Which speaker is active?
 			local cVar = "Sound_OutputDriverIndex"
 			local switch = tonumber(GetCVar(cVar))
-			local spkr1 = BearsSwitcher.db.global.spkr1 - 1
-			local spkr2 = BearsSwitcher.db.global.spkr2 - 1
+			local spkr1 = BearsSwitcher.db.profile.spkr1 - 1
+			local spkr2 = BearsSwitcher.db.profile.spkr2 - 1
 
-			-- print("spkr1=", BearsSwitcher.db.global.spkr1)
-			-- print("spkr2=", BearsSwitcher.db.global.spkr2)
+			-- print("spkr1=", BearsSwitcher.db.profile.spkr1)
+			-- print("spkr2=", BearsSwitcher.db.profile.spkr2)
 			-- print("switch is: ", switch)
 			if switch == spkr1 then
 				-- print("set spkr1 active")
@@ -117,18 +132,18 @@ f:SetScript(
 				Sound_GameSystem_GetOutputDriverNameByIndex(current),
 				"|r|cff00FF00 active|r"
 			)
-		elseif key == BearsSwitcher.db.global.volumeUp then
+		elseif key == BearsSwitcher.db.profile.volumeUp then
 			VolumeUp()
 			-- Sound to let them know the button was pushed
 			local volume = tonumber(GetCVar("Sound_MasterVolume"))
-			if BearsSwitcher.db.global.enableSound == true and volume < 1 then
+			if BearsSwitcher.db.profile.enableSound == true and volume < 1 then
 				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\volumeUp.ogg")
 			end
-		elseif key == BearsSwitcher.db.global.volumeDown then
+		elseif key == BearsSwitcher.db.profile.volumeDown then
 			VolumeDown()
 			-- Sound to let them know the button was pushed
 			local volume = tonumber(GetCVar("Sound_MasterVolume"))
-			if BearsSwitcher.db.global.enableSound == true and volume >= .01 then
+			if BearsSwitcher.db.profile.enableSound == true and volume >= .01 then
 				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\volumeDown.ogg")
 			end
 		end

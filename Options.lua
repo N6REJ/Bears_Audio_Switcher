@@ -14,7 +14,7 @@ end
 
 -- Set our options used in interface here
 BearsSwitcher.defaults = {
-    global = {
+    profile = {
         spkr1 = {}, -- default
         sprk2 = {}, -- Banana
         toggle = GetBindingText("NUMPADMULTIPLY"), -- default keypress
@@ -48,7 +48,7 @@ BearsSwitcher.options = {
                     style = "radio",
                     values = BearsSwitcher:GetDevices(),
                     set = function(info, value)
-                        BearsSwitcher.db.global.spkr1 = value
+                        BearsSwitcher.db.profile.spkr1 = value
                         -- Now that we have a value what do we do with it?
                         print(
                             "|cff00FF00Speaker 1 set to: |r|cffe3ff00 ",
@@ -57,7 +57,7 @@ BearsSwitcher.options = {
                         )
                     end,
                     get = function(info)
-                        return BearsSwitcher.db.global.spkr1
+                        return BearsSwitcher.db.profile.spkr1
                     end
                 },
                 spkr2 = {
@@ -67,17 +67,17 @@ BearsSwitcher.options = {
                     style = "radio",
                     values = BearsSwitcher:GetDevices(),
                     set = function(info, value)
-                        BearsSwitcher.db.global.spkr2 = value
+                        BearsSwitcher.db.profile.spkr2 = value
                         -- Now that we have a value what do we do with it?
                         print(
                             "|cff00FF00Speaker 2 set to: |r|cffe3ff00 ",
                             Sound_GameSystem_GetOutputDriverNameByIndex(value - 1),
                             "|r"
                         )
-                        -- BearsSwitcher.db.global.spkr2 = value
+                        -- BearsSwitcher.db.profile.spkr2 = value
                     end,
                     get = function(info)
-                        return BearsSwitcher.db.global.spkr2
+                        return BearsSwitcher.db.profile.spkr2
                     end
                 }
             }
@@ -97,10 +97,10 @@ BearsSwitcher.options = {
                     name = "Toggle key",
                     desc = "Key to use to switch audio devices",
                     get = function(info)
-                        return GetBindingText(BearsSwitcher.db.global.toggle)
+                        return GetBindingText(BearsSwitcher.db.profile.toggle)
                     end,
                     set = function(info, value)
-                        BearsSwitcher.db.global.toggle = value or BearsSwitcher.db.global.toggle
+                        BearsSwitcher.db.profile.toggle = value or BearsSwitcher.db.profile.toggle
                         -- Now that we have a value what do we do with it?
                         print("|cff00FF00Speaker toggle key set to: |r|cffe3ff00 ", GetBindingText(value), "|r")
                     end
@@ -111,10 +111,10 @@ BearsSwitcher.options = {
                     name = "Volume Up",
                     desc = "Raise master volume",
                     get = function(info)
-                        return GetBindingText(BearsSwitcher.db.global.volumeUp)
+                        return GetBindingText(BearsSwitcher.db.profile.volumeUp)
                     end,
                     set = function(info, value)
-                        BearsSwitcher.db.global.volumeUp = value or BearsSwitcher.db.global.volumeUp
+                        BearsSwitcher.db.profile.volumeUp = value or BearsSwitcher.db.profile.volumeUp
                         -- Now that we have a value what do we do with it?
                         print("|cff00FF00Volume up key set to: |r|cffe3ff00 ", GetBindingText(value), "|r")
                     end
@@ -125,10 +125,10 @@ BearsSwitcher.options = {
                     name = "Volume Down",
                     desc = "lower master volume",
                     get = function(info)
-                        return GetBindingText(BearsSwitcher.db.global.volumeDown)
+                        return GetBindingText(BearsSwitcher.db.profile.volumeDown)
                     end,
                     set = function(info, value)
-                        BearsSwitcher.db.global.volumeDown = value or BearsSwitcher.db.global.volumeDown
+                        BearsSwitcher.db.profile.volumeDown = value or BearsSwitcher.db.profile.volumeDown
                         -- Now that we have a value what do we do with it?
                         print("|cff00FF00Volume down key set to: |r|cffe3ff00 ", GetBindingText(value), "|r")
                     end
@@ -162,10 +162,10 @@ BearsSwitcher.options = {
                     desc = "Beep when changing volume",
                     -- inline getter/setter example
                     get = function(info)
-                        return BearsSwitcher.db.global.enableSound
+                        return BearsSwitcher.db.profile.enableSound
                     end,
                     set = function(info, value)
-                        BearsSwitcher.db.global.enableSound = value
+                        BearsSwitcher.db.profile.enableSound = value
                     end
                 }
             }
@@ -175,17 +175,17 @@ BearsSwitcher.options = {
 
 -- https://www.wowace.com/projects/ace3/pages/ace-config-3-0-options-tables#title-4-1
 function BearsSwitcher:GetValue(info)
-    return self.db.global[info[#info]]
+    return self.db.profile[info[#info]]
 end
 
 function BearsSwitcher:SetValue(info, value)
-    self.db.global[info[#info]] = value
+    self.db.profile[info[#info]] = value
 end
 
 function BearsSwitcher:GetVolumeSteps(info)
-    return self.db.global.volumeStep
+    return self.db.profile.volumeStep
 end
 
 function BearsSwitcher:SetVolumeSteps(info, value)
-    self.db.global.volumeStep = value
+    self.db.profile.volumeStep = value
 end
