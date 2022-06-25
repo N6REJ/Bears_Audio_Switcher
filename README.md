@@ -13,7 +13,9 @@
 Simple WoW ACE3 addon to help switch audio devices rapidly
 Uses keybind to toggle thru the audio output devices selected in config.
 
-<i><b>Installation Instructions: </b> After installing the addon you need to type "/bs" and configure your speakers and keybind.</i>
+<i><b>Installation Instructions: </b>
+     <p>After installing the addon you need to type "/bs" or "/switch" and configure your speakers and keybind.
+     This is a good time to set your volume step and enable or disable sound when changing the volume</p></i>
 
 <img width="328" alt="config-change" src="https://user-images.githubusercontent.com/1850089/175459116-c95e84a8-fe0c-4f5b-a8e5-5b9691c0ca16.png">
 

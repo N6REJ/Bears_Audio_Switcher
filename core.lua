@@ -104,9 +104,6 @@ function VolumeUp()
 end
 
 function VolumeDown()
-	local volume = tonumber(GetCVar("Sound_MasterVolume"))
-	print("Volume is at ", volume)
-	print("steps =", BearsSwitcher.db.profile.volumeSteps)
 	AdjustMasterVolume(-BearsSwitcher.db.profile.volumeSteps)
 end
 
