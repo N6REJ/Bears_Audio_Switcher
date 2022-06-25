@@ -51,7 +51,7 @@ end
 -- Volume variables.
 local SOUND_MASTERVOLUME_STEP = .1
 --local SOUND_MASTERVOLUME_STEP = BearsSwitcher.db.global.volumeSteps
---local feedback = BearsSwitcher.db.global.feedback
+--local enableSound = BearsSwitcher.db.global.enableSound
 
 -- VOLUME CONTROLS
 local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
@@ -61,7 +61,7 @@ local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
 
 		if (volume >= 1.0) then
 			volume = 1.0
-			if BearsSwitcher.db.global.feedback == true then
+			if BearsSwitcher.db.global.enableSound == true then
 				-- Sound to let them know the valume is maxed
 				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\100.ogg")
 			end
@@ -121,14 +121,14 @@ f:SetScript(
 			VolumeUp()
 			-- Sound to let them know the button was pushed
 			local volume = tonumber(GetCVar("Sound_MasterVolume"))
-			if BearsSwitcher.db.global.feedback == true and volume < 1 then
+			if BearsSwitcher.db.global.enableSound == true and volume < 1 then
 				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\volumeUp.ogg")
 			end
 		elseif key == BearsSwitcher.db.global.volumeDown then
 			VolumeDown()
 			-- Sound to let them know the button was pushed
 			local volume = tonumber(GetCVar("Sound_MasterVolume"))
-			if BearsSwitcher.db.global.feedback == true and volume >= .01 then
+			if BearsSwitcher.db.global.enableSound == true and volume >= .01 then
 				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\volumeDown.ogg")
 			end
 		end

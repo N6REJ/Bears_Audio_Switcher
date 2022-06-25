@@ -22,7 +22,7 @@ BearsSwitcher.defaults = {
         volumeUp = GetBindingText("NUMPADPLUS"),
         volumeDown = GetBindingText("NUMPADMINUS"),
         volumeSteps = .1,
-        feedback = true
+        enableSound = true
     }
 }
 
@@ -155,17 +155,17 @@ BearsSwitcher.options = {
                     max = 1,
                     step = DefaultVolumeSteps
                 },
-                feedback = {
+                enableSound = {
                     type = "toggle",
                     order = 2,
                     name = "Beep On",
                     desc = "Beep when changing volume",
                     -- inline getter/setter example
                     get = function(info)
-                        return BearsSwitcher.db.global.feedback
+                        return BearsSwitcher.db.global.enableSound
                     end,
                     set = function(info, value)
-                        BearsSwitcher.db.global.feedback = value
+                        BearsSwitcher.db.global.enableSound = value
                     end
                 }
             }
