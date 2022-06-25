@@ -156,8 +156,8 @@ BearsSwitcher.options = {
                 enableSound = {
                     type = "toggle",
                     order = 2,
-                    name = "Beep On",
-                    desc = "Beep when changing volume",
+                    name = "Sound On",
+                    desc = "Sound notification when changing volume",
                     -- inline getter/setter example
                     get = function(info)
                         return BearsSwitcher.db.profile.enableSound
