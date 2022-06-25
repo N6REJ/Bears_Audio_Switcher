@@ -16,7 +16,8 @@ Uses keybind to toggle thru the audio output devices selected in config.
 <i><b>Installation Instructions: </b>
      <p>After installing the addon you need to type "/bs" or "/switch" and configure your speakers and keybind.
      This is a good time to set your volume step and enable or disable sound when changing the volume</p></i>
+     
 
 <img width="328" alt="config-change" src="https://user-images.githubusercontent.com/1850089/175459116-c95e84a8-fe0c-4f5b-a8e5-5b9691c0ca16.png">
 
-![options](https://user-images.githubusercontent.com/1850089/175459644-2a0125b5-adca-4dce-918d-8499628b3226.jpg)
+<img width="857" alt="image" src="https://user-images.githubusercontent.com/1850089/175774110-f2145105-92b2-4630-adde-dd394756a21e.png">
