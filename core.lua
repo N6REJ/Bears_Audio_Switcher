@@ -79,7 +79,7 @@ f:SetScript(
 			current = tonumber(GetCVar(cVar))
 			print(
 				"|cff00FF00Audio Devices changed:|r",
-				"|cffe3ff00Speaker",
+				"|cffe3ff00",
 				Sound_GameSystem_GetOutputDriverNameByIndex(current),
 				"|r|cff00FF00 active|r"
 			)
