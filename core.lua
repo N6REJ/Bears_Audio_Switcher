@@ -9,7 +9,7 @@ local AC = LibStub("AceConfig-3.0")
 local ACD = LibStub("AceConfigDialog-3.0")
 
 function BearsSwitcher:OnInitialize()
-	-- uses the "Default" profile instead of character-specific profiles
+	-- uses the "Default" global instead of character-specific globals
 	-- https://www.wowace.com/projects/ace3/pages/api/ace-db-3-0
 	self.db = LibStub("AceDB-3.0"):New("BearsSwitcherDB", self.defaults, true)
 
@@ -48,20 +48,54 @@ function BearsSwitcher:SlashCommand(input, editbox)
 	end
 end
 
+-- Volume variables.
+local SOUND_MASTERVOLUME_STEP = .1
+--local SOUND_MASTERVOLUME_STEP = BearsSwitcher.db.global.volumeSteps
+--local feedback = BearsSwitcher.db.global.feedback
+
+-- VOLUME CONTROLS
+local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
+	local volume = tonumber(GetCVar("Sound_MasterVolume"))
+	if (volume) then
+		volume = volume + SOUND_MASTERVOLUME_STEP
+
+		if (volume >= 1.0) then
+			volume = 1.0
+			if BearsSwitcher.db.global.feedback == true then
+				-- Sound to let them know the valume is maxed
+				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\100.ogg")
+			end
+		elseif (volume < 0.0) then
+			volume = 0.0
+		end
+
+		SetCVar("Sound_MasterVolume", volume)
+	end
+end
+
+function VolumeUp()
+	AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
+end
+
+function VolumeDown()
+	AdjustMasterVolume(SOUND_MASTERVOLUME_STEP * -1)
+end
+
 -- Check for valid keypress
 local f = CreateFrame("Button")
 f:SetScript(
 	"OnKeyDown",
 	function(self, key)
-		if key == BearsSwitcher.db.profile.toggle then
+		if key == BearsSwitcher.db.global.toggle then
+			-- Check for volume up or down
 			-- Which speaker is active?
 			local cVar = "Sound_OutputDriverIndex"
 			local switch = tonumber(GetCVar(cVar))
-			local spkr1 = BearsSwitcher.db.profile.spkr1 - 1
-			local spkr2 = BearsSwitcher.db.profile.spkr2 - 1
+			local spkr1 = BearsSwitcher.db.global.spkr1 - 1
+			local spkr2 = BearsSwitcher.db.global.spkr2 - 1
 
-			-- print("spkr1=", BearsSwitcher.db.profile.spkr1)
-			-- print("spkr2=", BearsSwitcher.db.profile.spkr2)
+			-- print("spkr1=", BearsSwitcher.db.global.spkr1)
+			-- print("spkr2=", BearsSwitcher.db.global.spkr2)
 			-- print("switch is: ", switch)
 			if switch == spkr1 then
 				-- print("set spkr1 active")
@@ -83,8 +117,23 @@ f:SetScript(
 				Sound_GameSystem_GetOutputDriverNameByIndex(current),
 				"|r|cff00FF00 active|r"
 			)
+		elseif key == BearsSwitcher.db.global.volumeUp then
+			VolumeUp()
+			-- Sound to let them know the button was pushed
+			local volume = tonumber(GetCVar("Sound_MasterVolume"))
+			if BearsSwitcher.db.global.feedback == true and volume < 1 then
+				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\volumeUp.ogg")
+			end
+		elseif key == BearsSwitcher.db.global.volumeDown then
+			VolumeDown()
+			-- Sound to let them know the button was pushed
+			local volume = tonumber(GetCVar("Sound_MasterVolume"))
+			if BearsSwitcher.db.global.feedback == true and volume >= .01 then
+				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\volumeDown.ogg")
+			end
 		end
 
+		-- ok, pass the key thru
 		self:SetPropagateKeyboardInput(true)
 	end
 )
