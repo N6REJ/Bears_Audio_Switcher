@@ -6,7 +6,7 @@
 
 ![Shadowlands](https://img.shields.io/badge/Supports-Shadowlands-0B68D7)
 ![9.2.5](https://img.shields.io/badge/Ready_for-9.2.5-darkgreen)
-[![curse](https://img.shields.io/badge/Curseforge_Project_ID:-446518-purple)](https://www.curseforge.com/wow/addons/Bears_Audio_Switcher)
+[![curse](https://img.shields.io/badge/Curseforge_Project_ID:-631148-purple)](https://www.curseforge.com/wow/addons/Bears_Audio_Switcher)
 
 
 
