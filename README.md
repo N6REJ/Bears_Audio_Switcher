@@ -10,12 +10,18 @@
 
 
 
-Simple WoW ACE3 addon to help switch audio devices rapidly
-Uses keybind to toggle thru the audio output devices selected in config.
+Simple WoW ACE3 addon to help switch audio devices rapidly Using keybind to toggle thru the selected audio output devices in config.
+Also allows you to raise and lower the master volume via keybind.  This is useful, for example, when your watching youtube and the video has low volume.  When you turn your speakers up you then have the game blasting in your ears.  Hit a key and down the game goes while keeping youtube at a comfortable level.
 
 <i><b>Installation Instructions: </b>
      <p>After installing the addon you need to type "/bs" or "/switch" and configure your speakers and keybind.
      This is a good time to set your volume step and enable or disable sound when changing the volume</p></i>
+     
+ Default keybinds:
+ Numpad * = change speaker    ( will show in chatbox which speaker is now active )
+ Numpad + = Volume up    ( will give audio announcement that volume went up or if at 100% )
+ numpad - = Volume down  ( will give audio announcement that volume went down )
+ volume step = 10%
      
 
 <img width="328" alt="config-change" src="https://user-images.githubusercontent.com/1850089/175459116-c95e84a8-fe0c-4f5b-a8e5-5b9691c0ca16.png">
