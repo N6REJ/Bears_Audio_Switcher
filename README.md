@@ -23,7 +23,7 @@ Also allows you to raise and lower the master volume via keybind.  This is usefu
 |Numpad * | change speaker    ( will show in chatbox which speaker is now active ) |
 | Numpad + | Volume up    ( will give audio announcement that volume went up or if at 100% ) |
 | Numpad - | Volume down  ( will give audio announcement that volume went down )|
-| Volume step | 10%|
+| Volume step | 10% per keypress|
 | Notifications Sound | On |
 | | *Keybinds are passed thru to the UI so it CAN be a key you normally use for other things but this isn't recommended |
      
