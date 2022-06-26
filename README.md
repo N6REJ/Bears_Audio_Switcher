@@ -17,13 +17,14 @@ Also allows you to raise and lower the master volume via keybind.  This is usefu
      <p>After installing the addon you need to type "/bs" or "/switch" and configure your speakers and keybind.
      This is a good time to set your volume step and enable or disable sound when changing the volume</p></i>
      
- ***Defaults:
+ #### Defaults:
  | Keybind | Description |
 | --- | --- |
 |Numpad * | change speaker    ( will show in chatbox which speaker is now active ) |
 | Numpad + | Volume up    ( will give audio announcement that volume went up or if at 100% ) |
 | Numpad - | Volume down  ( will give audio announcement that volume went down )|
-| volume step | 10%|
+| Volume step | 10%|
+| Notifications Sound | On |
 | | *Keybinds are passed thru to the UI so it CAN be a key you normally use for other things but this isn't recommended |
      
 ![numpad](https://user-images.githubusercontent.com/1850089/175800053-a533c60d-aa99-400d-bd78-610a1adceebe.jpg)     
