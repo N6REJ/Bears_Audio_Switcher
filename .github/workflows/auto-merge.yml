@@ -14,7 +14,7 @@ jobs:
       repository: ${{ steps.metadata.outputs.repository }}
 
     steps:
-      - uses: actions/checkout@v3.0.2
+      - uses: actions/checkout@v3.1.0
 
       - uses: ahmadnassri/action-metadata@v2
         id: metadata
