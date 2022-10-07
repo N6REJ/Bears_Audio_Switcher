@@ -1,11 +1,21 @@
-/.idea/deployment.xml
+# Jetbrains
+/*.iml
+/.idea
 /.idea/.gitignore
-/.idea/AdiBags_Shadowlands_Cooking.iml
+/.idea/deployment.xml
 /.idea/discord.xml
-/.idea/encodings.xml
-/.idea/misc.xml
+/.idea/module-perl.iml
 /.idea/modules.xml
 /.idea/php.xml
-/.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
-/.idea/markdown.xml
+
+# Bearsampp
+/.dev
+
+# Visual Studio
+.vscode/
+.vs/
+.vsc/
+
+# Exempt bin since its for temp use only.
+/bin/
