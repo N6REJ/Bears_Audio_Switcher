@@ -3,6 +3,7 @@
 /.idea
 /.idea/.gitignore
 /.idea/deployment.xml
+/.idea/markdown.xml
 /.idea/discord.xml
 /.idea/module-perl.iml
 /.idea/modules.xml
