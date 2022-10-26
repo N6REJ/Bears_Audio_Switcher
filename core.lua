@@ -117,6 +117,7 @@ f:SetScript(
 			-- Which speaker is active?
 			local cVar = "Sound_OutputDriverIndex"
 			local switch = tonumber(GetCVar(cVar))
+			local current = nil
 			local spkr1 = BearsSwitcher.db.profile.spkr1 - 1
 			local spkr2 = BearsSwitcher.db.profile.spkr2 - 1
 
@@ -125,14 +126,14 @@ f:SetScript(
 			-- print("switch is: ", switch)
 			if switch == spkr1 then
 				-- print("set spkr1 active")
-				SetCVar("Sound_OutputDriverIndex", spkr2)
+				SetCVar("Sound_OutputDriverIndex", tostring(spkr2))
 			else
 				-- print("set spkr2 active")
-				SetCVar("Sound_OutputDriverIndex", spkr1)
+				SetCVar("Sound_OutputDriverIndex", tostring(spkr1))
 			end
 
 			-- Make the device active.
-			AudioOptionsFrame_AudioRestart()
+			Sound_GameSystem_RestartSoundSystem()
 
 			-- Find out current device so we can tell them what it is.
 			cVar = "Sound_OutputDriverIndex"
