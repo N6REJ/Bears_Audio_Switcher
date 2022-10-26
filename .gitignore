@@ -3,12 +3,12 @@
 /.idea
 /.idea/.gitignore
 /.idea/deployment.xml
-/.idea/markdown.xml
 /.idea/discord.xml
 /.idea/module-perl.iml
 /.idea/modules.xml
 /.idea/php.xml
 /.idea/vcs.xml
+/.idea/markdown.xml
 
 # Bearsampp
 /.dev
