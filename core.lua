@@ -1,3 +1,5 @@
+---@class
+
 -- Create BearsSwitcher in wow
 BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0", "AceConsole-3.0")
 
@@ -77,7 +79,7 @@ end
 -- VOLUME CONTROLS
 local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
 	-- Set volume to 0-1 range instead of 0-100
-	local SOUND_MASTERVOLUME_STEP = SOUND_MASTERVOLUME_STEP / 100
+	SOUND_MASTERVOLUME_STEP = SOUND_MASTERVOLUME_STEP / 100
 
 	-- Get current volume level from 0 - 1
 	local volume = tonumber(GetCVar("Sound_MasterVolume"))
@@ -88,7 +90,7 @@ local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
 		if (volume >= 1.0) then
 			volume = 1.0
 			if BearsSwitcher.db.profile.enableSound == true then
-				-- Sound to let them know the valume is maxed
+				-- Sound to let them know the volume is maxed
 				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\100.ogg")
 			end
 		elseif (volume < 0.0) then
@@ -117,7 +119,7 @@ f:SetScript(
 			-- Which speaker is active?
 			local cVar = "Sound_OutputDriverIndex"
 			local switch = tonumber(GetCVar(cVar))
-			local current = nil
+			local current
 			local spkr1 = BearsSwitcher.db.profile.spkr1 - 1
 			local spkr2 = BearsSwitcher.db.profile.spkr2 - 1
 
