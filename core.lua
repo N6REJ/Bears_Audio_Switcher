@@ -1,4 +1,4 @@
----@class
+---@class ns
 
 -- Create BearsSwitcher in wow
 BearsSwitcher = LibStub("AceAddon-3.0"):NewAddon("BearsSwitcher", "AceEvent-3.0", "AceConsole-3.0")
