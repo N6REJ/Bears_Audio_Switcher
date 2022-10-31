@@ -1,7 +1,6 @@
 name: Create labels
 
 on:
-  manual:
   push:
     branches:
       - 'main'
