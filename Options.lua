@@ -1,3 +1,9 @@
+-- Bears Audio Switcher - Database
+-- Created by N6REJ character is Bearesquishy - dalaran please credit whenever.
+-- Source on GitHub: https://n6rej.github.io
+---@type
+---
+
 -- Get listing of audio devices available and populate the "Devices" variable with those values so they can be selected.
 function BearsSwitcher:GetDevices()
     -- query audio devices and populate array.
@@ -14,7 +20,7 @@ end
 BearsSwitcher.defaults = {
     profile = {
         spkr1 = {}, -- default
-        sprk2 = {}, -- Banana
+        spkr2 = {}, -- normally headset
         toggle = GetBindingText("NUMPADMULTIPLY"), -- default keypress
         Devices = {},
         volumeUp = GetBindingText("NUMPADPLUS"),

@@ -1,3 +1,7 @@
+-- Bears Audio Switcher - Database
+-- Created by N6REJ character is Bearesquishy - dalaran please credit whenever.
+-- Source on GitHub: https://n6rej.github.io
+---
 ---@class ns
 
 -- Create BearsSwitcher in wow
