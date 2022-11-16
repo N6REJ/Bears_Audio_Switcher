@@ -1,6 +1,6 @@
 ## Title: BearsSwitcher
-## Interface: 100000
-## X-Interface: 100000
+## Interface: 100002
+## X-Interface: 100002
 ## Author: BearLeeAble
 ## Version: @project-version@
 ## Notes: Allows you to quickly change the audio output driver used by the game.
