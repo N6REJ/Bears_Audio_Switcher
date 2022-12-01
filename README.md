@@ -4,7 +4,7 @@
 [![Build Curse Release](https://github.com/N6REJ/Bears_Audio_Switcher/actions/workflows/release.yml/badge.svg)](https://github.com/N6REJ/Bears_Audio_Switcher/actions/workflows/release.yml)
 [![GitHub release](https://img.shields.io/github/release/N6REJ/Bears_Audio_Switcher.svg)](https://GitHub.com/N6REJ/Bears_Audio_Switcher/releases/)
 
-![Shadowlands](https://img.shields.io/badge/Supports-Shadowlands-0B68D7)
+![Shadowlands](https://img.shields.io/badge/Supports-Shadowlands&nbsp;&amp;&nbsp;Dragonflight-0B68D7)
 ![10.0.0](https://img.shields.io/badge/Ready_for-10.0.0-darkgreen)
 [![curse](https://img.shields.io/badge/Curseforge_Project_ID:-631148-purple)](https://www.curseforge.com/wow/addons/Bears_Audio_Switcher)
 
