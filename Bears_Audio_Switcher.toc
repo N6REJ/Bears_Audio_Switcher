@@ -1,4 +1,4 @@
-## Title: BearsSwitcher
+## Title: Bears Switcher
 ## Interface: 100002
 ## X-Interface: 100002
 ## Author: BearLeeAble
