@@ -63,6 +63,10 @@
   name: ":question: question"
   color: "3f51b5"
   description: ""
+- # Has PR
+  name: "PR :scientist:"
+  color: "FFFFFF"
+  description: "Has PR"
 - # upstream
   name: ":eyes: upstream"
   color: "fbca04"
