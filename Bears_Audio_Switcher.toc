@@ -1,6 +1,6 @@
 ## Title: Bears Switcher
-## Interface: 100005
-## X-Interface: 100005
+## Interface: 100007
+## X-Interface: 100007
 ## Author: BearLeeAble
 ## Version: @project-version@
 ## Notes: Allows you to quickly change the audio output driver used by the game.
