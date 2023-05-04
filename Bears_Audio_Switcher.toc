@@ -7,6 +7,7 @@
 ## X-License: MIT License
 ## X-Curse-Project-ID: 631148
 ## X-Wago-ID: qv63lnKb
+## IconAtlas: chatframe-button-icon-speaker-on
 ## SavedVariables: BearsSwitcherDB
 ## OptionalDeps: Ace3 # if a user wants to run Ace3 standalone
 ## DefaultState: enabled
