@@ -82,10 +82,10 @@ end
 
 -- VOLUME CONTROLS
 local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
-	-- Set volume to 0-1 range instead of 0-100
+	-- Set volume to 1-100
 	SOUND_MASTERVOLUME_STEP = SOUND_MASTERVOLUME_STEP / 100
 
-	-- Get current volume level from 0 - 1
+	-- Get current volume level from 1 - 100
 	local volume = tonumber(GetCVar("Sound_MasterVolume"))
 
 	if (volume) then

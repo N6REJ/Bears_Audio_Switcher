@@ -157,7 +157,7 @@ BearsSwitcher.options = {
                     set = "SetVolumeSteps",
                     min = 1,
                     max = 100,
-                    step = 5
+                    step = 1
                 },
                 enableSound = {
                     type = "toggle",
