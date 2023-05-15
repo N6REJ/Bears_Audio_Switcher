@@ -155,9 +155,9 @@ BearsSwitcher.options = {
                     -- this will look for a getter/setter on our handler object
                     get = "GetVolumeSteps",
                     set = "SetVolumeSteps",
-                    min = 0,
+                    min = 1,
                     max = 100,
-                    step = 10
+                    step = 1
                 },
                 enableSound = {
                     type = "toggle",
