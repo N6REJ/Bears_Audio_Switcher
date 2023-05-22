@@ -170,3 +170,8 @@ f:SetScript(
 		self:SetPropagateKeyboardInput(true)
 	end
 )
+
+-- Addon compartment usage
+function BearsAudioSwitcher_OnAddonCompartmentClick(addonName, buttonName, editbox)
+	BearsSwitcher:SlashCommand("/bs", editbox)
+end
