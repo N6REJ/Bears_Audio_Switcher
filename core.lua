@@ -97,7 +97,7 @@ local function AdjustMasterVolume(SOUND_MASTERVOLUME_STEP)
 				-- Sound to let them know the volume is maxed
 				PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\100.ogg")
 			end
-		elseif (volume < 0.0) then
+		elseif (volume <= 0.0) then
 			volume = 0.0
 		end
 
