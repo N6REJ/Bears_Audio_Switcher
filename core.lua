@@ -39,6 +39,7 @@ function BearsSwitcher:OnInitialize()
 		volumeDown = GetBindingText("NUMPADMINUS"),
 		volumeSteps = 1,
 		toggle = GetBindingText("NUMPADMULTIPLY"),
+		music_toggle = GetBindingText("NUMPADDIVIDE"),
 		enableSound = true
 	}
 
@@ -169,6 +170,20 @@ f:SetScript(
 		-- ok, pass the key thru
 		self:SetPropagateKeyboardInput(true)
 	end
+)
+
+-- Check for valid music keypress
+local g = CreateFrame("Button")
+g:SetScript(
+		"OnKeyDown",
+		function(self, key)
+			if key == BearsSwitcher.db.profile.music_toggle then
+				-- Check for current state of music toggle.
+				Sound_ToggleMusic();
+			end
+			-- ok, pass the key thru
+			self:SetPropagateKeyboardInput(true)
+		end
 )
 
 -- Addon compartment usage
