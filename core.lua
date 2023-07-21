@@ -165,15 +165,11 @@ f:SetScript(
                 if BearsSwitcher.db.profile.enableSound == true and volume >= .01 then
                     PlaySoundFile("Interface\\AddOns\\Bears_Audio_Switcher\\media\\volumeDown.ogg")
                 end
+            elseif key == BearsSwitcher.db.profile.music_toggle then
+                -- Check for current state of music toggle.
+                Sound_ToggleMusic();
             end
 
-            -- Check for valid music keypress
-            function(self, key)
-                if key == BearsSwitcher.db.profile.music_toggle then
-                    -- Check for current state of music toggle.
-                    Sound_ToggleMusic();
-                end
-            end
             -- ok, pass the key thru
             self:SetPropagateKeyboardInput(true)
         end
