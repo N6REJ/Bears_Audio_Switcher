@@ -98,7 +98,7 @@ BearsSwitcher.options = {
             args = {
                 key = {
                     type = "keybinding",
-                    order = 3,
+                    order = 4,
                     name = "Speaker Toggle",
                     desc = "Key to use to switch audio devices",
                     get = function(info)
@@ -110,9 +110,9 @@ BearsSwitcher.options = {
                         print("|cff00FF00Speaker toggle key set to: |r|cffe3ff00 ", GetBindingText(value), "|r")
                     end
                 },
-                key = {
+                mkey = {
                     type = "keybinding",
-                    order = 4,
+                    order = 3,
                     name = "Music Toggle",
                     desc = "Key to use to switch music on/off",
                     get = function(info)
