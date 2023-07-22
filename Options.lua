@@ -98,7 +98,7 @@ BearsSwitcher.options = {
             args = {
                 key = {
                     type = "keybinding",
-                    order = 4,
+                    order = 6,
                     name = "Speaker Toggle",
                     desc = "Key to use to switch audio devices",
                     get = function(info)
@@ -126,7 +126,7 @@ BearsSwitcher.options = {
                 },
                 volumeUp = {
                     type = "keybinding",
-                    order = 5,
+                    order = 4,
                     name = "Volume Up",
                     desc = "Raise master volume",
                     get = function(info)
@@ -140,7 +140,7 @@ BearsSwitcher.options = {
                 },
                 volumeDown = {
                     type = "keybinding",
-                    order = 6,
+                    order = 5,
                     name = "Volume Down",
                     desc = "lower master volume",
                     get = function(info)
