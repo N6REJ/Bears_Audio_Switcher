@@ -39,7 +39,7 @@ function BearsSwitcher:OnInitialize()
         volumeDown = GetBindingText("NUMPADMINUS"),
         volumeSteps = 1,
         toggle = GetBindingText("NUMPADMULTIPLY"),
-        music_toggle = GetBindingText("CTRL-NUMPADMULTIPLY"),
+        music_toggle = GetBindingText("NUMPADDIVIDE"),
         enableSound = true
     }
 
@@ -167,7 +167,7 @@ f:SetScript(
                 end
             elseif key == BearsSwitcher.db.profile.music_toggle then
                 -- Check for current state of music toggle.
-                Sound_ToggleMusic();
+                Sound_ToggleMusic()
             end
 
             -- ok, pass the key thru
