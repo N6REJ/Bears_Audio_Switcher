@@ -22,6 +22,7 @@ BearsSwitcher.defaults = {
         spkr1 = {}, -- default
         spkr2 = {}, -- normally headset
         toggle = GetBindingText("NUMPADMULTIPLY"), -- default keypress
+        music_toggle = GetBindingText("NUMPADDIVIDE"), -- default music keypress
         Devices = {},
         volumeUp = GetBindingText("NUMPADPLUS"),
         volumeDown = GetBindingText("NUMPADMINUS"),
@@ -55,9 +56,9 @@ BearsSwitcher.options = {
                         BearsSwitcher.db.profile.spkr1 = value
                         -- Now that we have a value what do we do with it?
                         print(
-                            "|cff00FF00Speaker 1 set to: |r|cffe3ff00 ",
-                            Sound_GameSystem_GetOutputDriverNameByIndex(value - 1),
-                            "|r"
+                                "|cff00FF00Speaker 1 set to: |r|cffe3ff00 ",
+                                Sound_GameSystem_GetOutputDriverNameByIndex(value - 1),
+                                "|r"
                         )
                     end,
                     get = function(info)
@@ -74,9 +75,9 @@ BearsSwitcher.options = {
                         BearsSwitcher.db.profile.spkr2 = value
                         -- Now that we have a value what do we do with it?
                         print(
-                            "|cff00FF00Speaker 2 set to: |r|cffe3ff00 ",
-                            Sound_GameSystem_GetOutputDriverNameByIndex(value - 1),
-                            "|r"
+                                "|cff00FF00Speaker 2 set to: |r|cffe3ff00 ",
+                                Sound_GameSystem_GetOutputDriverNameByIndex(value - 1),
+                                "|r"
                         )
                         -- BearsSwitcher.db.profile.spkr2 = value
                     end,
@@ -98,7 +99,7 @@ BearsSwitcher.options = {
                 key = {
                     type = "keybinding",
                     order = 3,
-                    name = "Toggle key",
+                    name = "Speaker Toggle",
                     desc = "Key to use to switch audio devices",
                     get = function(info)
                         return GetBindingText(BearsSwitcher.db.profile.toggle)
@@ -109,9 +110,23 @@ BearsSwitcher.options = {
                         print("|cff00FF00Speaker toggle key set to: |r|cffe3ff00 ", GetBindingText(value), "|r")
                     end
                 },
-                volumeUp = {
+                key = {
                     type = "keybinding",
                     order = 4,
+                    name = "Music Toggle",
+                    desc = "Key to use to switch music on/off",
+                    get = function(info)
+                        return GetBindingText(BearsSwitcher.db.profile.music_toggle)
+                    end,
+                    set = function(info, value)
+                        BearsSwitcher.db.profile.music_toggle = value or BearsSwitcher.db.profile.music_toggle
+                        -- Now that we have a value what do we do with it?
+                        print("|cff00FF00Music toggle key set to: |r|cffe3ff00 ", GetBindingText(value), "|r")
+                    end
+                },
+                volumeUp = {
+                    type = "keybinding",
+                    order = 5,
                     name = "Volume Up",
                     desc = "Raise master volume",
                     get = function(info)
@@ -125,7 +140,7 @@ BearsSwitcher.options = {
                 },
                 volumeDown = {
                     type = "keybinding",
-                    order = 5,
+                    order = 6,
                     name = "Volume Down",
                     desc = "lower master volume",
                     get = function(info)
