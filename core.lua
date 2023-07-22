@@ -39,7 +39,7 @@ function BearsSwitcher:OnInitialize()
         volumeDown = GetBindingText("NUMPADMINUS"),
         volumeSteps = 1,
         toggle = GetBindingText("NUMPADMULTIPLY"),
-        music_toggle = GetBindingText("NUMPADDIVIDE"),
+        music_toggle = GetBindingText("ctrl+NUMPADMULTIPLY"),
         enableSound = true
     }
 
