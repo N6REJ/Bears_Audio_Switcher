@@ -173,7 +173,7 @@ f:SetScript(
             end
 
             -- ok, pass the key thru
-            if not  InCombatLockdown() then
+            if not InCombatLockdown() then
                 self:SetPropagateKeyboardInput(true)
             end
         end
