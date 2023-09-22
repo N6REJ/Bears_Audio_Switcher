@@ -13,6 +13,7 @@ ignore:
 license-output: LICENSE
 
 enable-nolib-creation: no
+enable-toc-creation: yes
 
 tools-used:
     - libdatabroker-1-1
