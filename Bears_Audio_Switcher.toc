@@ -1,6 +1,6 @@
 ## Title: Bears Switcher
-## Interface: 100007
-## X-Interface: 100007
+## Interface: 100200
+## X-Interface: 100200
 ## Interface-Classic: 11404
 ## Author: BearLeeAble
 ## Version: @project-version@
