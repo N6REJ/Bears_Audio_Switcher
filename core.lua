@@ -68,16 +68,7 @@ function BearsSwitcher:SlashCommand(input, editbox)
         self:Disable()
         self:Print("Disabled.")
     else
-        --[[ or as a standalone window
-        if ACD.OpenFrames["BearsSwitcher_Options"] then
-            ACD:Close("BearsSwitcher_Options")
-        else
-            ACD:Open("BearsSwitcher_Options")
-        end
-        ]]
-        -- https://github.com/Stanzilla/WoWUIBugs/issues/89
-        InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
-        InterfaceOptionsFrame_OpenToCategory(self.optionsFrame)
+        ACD:Open("BearsSwitcher_Options")
     end
 end
 
