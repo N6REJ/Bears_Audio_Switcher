@@ -18,5 +18,6 @@ enable-toc-creation: yes
 tools-used:
     - libdatabroker-1-1
 
-optional-dependencies:
-    - Ace3
+externals:
+Libs/LibStub: https://repos.wowace.com/wow/libstub/trunk
+Libs/AceLocale-3.0: https://repos.curseforge.com/wow/ace3/trunk/AceLocale-3.0
