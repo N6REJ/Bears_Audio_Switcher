@@ -12,6 +12,7 @@
 ## DefaultState: enabled
 
 Libs/LibStub/LibStub.lua
-Libs/LibStub/AceConfig-3.0.xml
+Libs/AceConfig-3.0.xml
+Libs/AceEvent-3.0.xml
 core.lua
 Options.lua
