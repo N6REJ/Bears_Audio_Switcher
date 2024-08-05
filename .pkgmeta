@@ -7,7 +7,6 @@ ignore:
     - .release
     - .gitignore
     - .gitattributes
-    - /Libs/
     - .vscode/
 
 license-output: LICENSE
