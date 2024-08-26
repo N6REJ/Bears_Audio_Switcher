@@ -19,7 +19,7 @@ Also allows you to raise and lower the master volume via keybind.  This is usefu
      
  #### Defaults:
  | Keybind             | Description                                                                                                         |
-|---------------------|---------------------------------------------------------------------------------------------------------------------|
+|---------------------|----------------------------------------------------------|
 | Numpad *            | change speaker    ( will show in chatbox which speaker is now active )                                              |
 | Numpad /            | Toggle music on/off                                                                                                 |
 | Numpad +            | Volume up    ( will give audio announcement that volume went up or if at 100% )                                     |
