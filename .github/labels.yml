@@ -69,5 +69,5 @@
   description: ""
 - # Hacktoberfest
   name: "Hacktoberfest-accepted :mending_heart:"
+  color: "123123"
   description: "Accepted for Hacktoberfest"
-  from_name: "Hacktoberfest accepted"
