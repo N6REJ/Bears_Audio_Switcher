@@ -1,0 +1,48 @@
+name: curseforge-stats
+
+on:
+  schedule:
+    # ~10pm central usa
+    - cron: "0 4 * * *"
+  workflow_dispatch:
+
+concurrency:
+  group: curseforge-${{ github.repository }}-${{ github.ref }}
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  publish-downloads:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+
+      - name: Publish downloads.json and charts to stats-data
+        uses: N6REJ/curseforge-downloads-action@latest
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          curseforge_mod_id: "631148"
+          cf_api_key: ${{ secrets.CF_API_KEY }}
+          window_days: "365"
+          enable_hourly_profile: "false"
+          output_branch: "stats-data"
+          output_path: "curseforge/downloads.json"
+          min_refresh_minutes: "0"
+          publish_chart: "true"
+          chart_output_path: "curseforge/downloads-trend.svg"
+          chart_types: "total-trend,daily,weekly,monthly,yearly"
+          chart_themes: "black,slate,orange"
+          charts_output_dir: "curseforge/charts"
+          chart_width: "1000"
+          chart_height: "360"
+          chart_zero_baseline: "true"
+          chart_y_ticks: "6"
+          chart_x_label_every_days: "0"
+          chart_show_value_labels: "false"
+          chart_date_label_format: "yyyy-mm-dd"
+          chart_show_generated_at: "true"
+          chart_title_mode: "default"
+          publish_dashboard: "true"
+          dashboard_path: "curseforge/dashboard.md"
