@@ -15,20 +15,10 @@ CurseForge mod `631148`, tracked by [curseforge-downloads-action](https://github
 ## All charts
 
 ![Latest total black](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/total-trend--black.svg)
-![Latest total slate](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/total-trend--slate.svg)
-![Latest total orange](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/total-trend--orange.svg)
 ![Latest day black](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/daily--black.svg)
-![Latest day slate](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/daily--slate.svg)
-![Latest day orange](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/daily--orange.svg)
 ![Latest week black](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/weekly--black.svg)
-![Latest week slate](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/weekly--slate.svg)
-![Latest week orange](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/weekly--orange.svg)
 ![Latest month black](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/monthly--black.svg)
-![Latest month slate](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/monthly--slate.svg)
-![Latest month orange](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/monthly--orange.svg)
 ![Latest year black](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/yearly--black.svg)
-![Latest year slate](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/yearly--slate.svg)
-![Latest year orange](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/charts/yearly--orange.svg)
 
 ## Data
 
@@ -48,7 +38,7 @@ CurseForge mod `631148`, tracked by [curseforge-downloads-action](https://github
 | Window | 365 days |
 | Snapshots | 1 |
 | Partial | day, week, month, year |
-| Generated at | `2026-10-21T00:16:15.879Z` |
+| Generated at | `2026-10-21T00:19:36.168Z` |
 
 Source data: [`stats/downloads.json`](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/downloads.json)
 
