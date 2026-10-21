@@ -48,7 +48,7 @@ CurseForge mod `631148`, tracked by [curseforge-downloads-action](https://github
 | Window | 365 days |
 | Snapshots | 1 |
 | Partial | day, week, month, year |
-| Generated at | `2026-10-21T00:04:07.836Z` |
+| Generated at | `2026-10-21T00:08:25.523Z` |
 
 Source data: [`curseforge/downloads.json`](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/stats-data/curseforge/downloads.json)
 
