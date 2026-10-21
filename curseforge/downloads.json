@@ -1,0 +1,33 @@
+{
+  "schemaVersion": "1",
+  "owner": "N6REJ",
+  "repo": "Bears_Audio_Switcher",
+  "visibility": "public",
+  "generatedAt": "2026-10-21T00:04:07.836Z",
+  "stats": {
+    "total": 6018,
+    "day": 0,
+    "week": 0,
+    "month": 0,
+    "year": 0
+  },
+  "partial": {
+    "day": true,
+    "week": true,
+    "month": true,
+    "year": true
+  },
+  "snapshots": {
+    "windowDays": 365,
+    "count": 1,
+    "firstDate": "2026-10-21",
+    "lastDate": "2026-10-21",
+    "series": {
+      "2026-10-21": 6018
+    }
+  },
+  "profile": {
+    "defaultMode": "daily",
+    "hourlyEnabled": false
+  }
+}
