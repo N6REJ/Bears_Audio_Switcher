@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
 
-      - name: Publish downloads.json and charts to stats-data
+      - name: Publish downloads.json and charts to main
         uses: N6REJ/curseforge-downloads-action@latest
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -27,14 +27,14 @@ jobs:
           cf_studio_api_key: ${{ secrets.CF_STUDIO_API_KEY }}
           window_days: "365"
           enable_hourly_profile: "false"
-          output_branch: "stats-data"
-          output_path: "curseforge/downloads.json"
+          output_branch: "main"
+          output_path: "stats/downloads.json"
           min_refresh_minutes: "0"
           publish_chart: "true"
-          chart_output_path: "curseforge/downloads-trend.svg"
+          chart_output_path: "stats/downloads-trend.svg"
           chart_types: "total-trend,daily,weekly,monthly,yearly"
           chart_themes: "black,slate,orange"
-          charts_output_dir: "curseforge/charts"
+          charts_output_dir: "stats/charts"
           chart_width: "1000"
           chart_height: "360"
           chart_zero_baseline: "true"
@@ -45,4 +45,4 @@ jobs:
           chart_show_generated_at: "true"
           chart_title_mode: "default"
           publish_dashboard: "true"
-          dashboard_path: "curseforge/dashboard.md"
+          dashboard_path: "stats/dashboard.md"
