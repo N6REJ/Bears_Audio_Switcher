@@ -3,25 +3,25 @@
   "owner": "N6REJ",
   "repo": "Bears_Audio_Switcher",
   "visibility": "public",
-  "generatedAt": "2026-10-21T09:06:31.373Z",
+  "generatedAt": "2026-10-22T09:08:53.373Z",
   "stats": {
     "total": 6021,
-    "day": 6021,
-    "week": 6021,
-    "month": 6021,
-    "year": 6021
+    "day": 0,
+    "week": 0,
+    "month": 0,
+    "year": 0
   },
   "partial": {
-    "day": true,
+    "day": false,
     "week": true,
     "month": true,
     "year": true
   },
   "periods": {
     "day": {
-      "start": "2026-10-21",
-      "end": "2026-10-21",
-      "label": "2026-10-21"
+      "start": "2026-10-22",
+      "end": "2026-10-22",
+      "label": "2026-10-22"
     },
     "week": {
       "start": "2026-10-19",
@@ -41,11 +41,12 @@
   },
   "snapshots": {
     "windowDays": 365,
-    "count": 1,
+    "count": 2,
     "firstDate": "2026-10-21",
-    "lastDate": "2026-10-21",
+    "lastDate": "2026-10-22",
     "series": {
-      "2026-10-21": 6021
+      "2026-10-21": 6021,
+      "2026-10-22": 6021
     }
   },
   "profile": {
