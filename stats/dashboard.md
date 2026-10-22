@@ -42,9 +42,9 @@ Charts are generated on the first run. Customize them freely; only the data tabl
 |---|---|
 | Total | 6,021 |
 | Day | 0 |
-| Week | 0 (partial) |
-| Month | 0 (partial) |
-| Year | 0 (partial) |
+| Week | 6,021 (partial) |
+| Month | 6,021 (partial) |
+| Year | 6,021 (partial) |
 
 | Field | Value |
 |---|---|
@@ -53,7 +53,7 @@ Charts are generated on the first run. Customize them freely; only the data tabl
 | Update mode | daily |
 | Period | week `2026-W43`, month `Oct 2026`, year `2026` |
 | Window | 365 days |
-| Snapshots | 2 |
+| Snapshots | 3 |
 | Partial | week, month, year |
 | Generated at | `2026-10-22T09:08:53.373Z` |
 
