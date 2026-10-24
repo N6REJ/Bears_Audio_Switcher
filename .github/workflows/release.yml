@@ -35,6 +35,55 @@ jobs:
         with:
           fetch-depth: 0  # gets git history for changelogs
 
+      - name: Generate filtered changelog
+        run: |
+          project="Bears Switcher"
+          project_github_url="https://github.com/${GITHUB_REPOSITORY}"
+          project_timestamp=$(git show --no-patch --format="%at" HEAD)
+          changelog_date=$(TZ='' printf "%(%Y-%m-%d)T" "$project_timestamp")
+          tag=$(git describe --tags --always --abbrev=0 2>/dev/null || true)
+          _tag=$(git describe --tags --always --abbrev=7 2>/dev/null || true)
+          project_hash=$(git show --no-patch --format="%H" HEAD)
+          previous_version=""
+          if [ "$tag" = "$project_hash" ]; then
+            project_version="$_tag"
+            tag=""
+          elif [ "$_tag" != "$tag" ]; then
+            project_version=$(git describe --tags --abbrev=7 --exclude="*[Aa][Ll][Pp][Hh][Aa]*" 2>/dev/null || true)
+            previous_version=$(git describe --tags --abbrev=0 --exclude="*[Aa][Ll][Pp][Hh][Aa]*" 2>/dev/null || true)
+            tag=""
+          else
+            project_version="$tag"
+            if [[ "${tag,,}" != *"beta"* && "${tag,,}" != *"alpha"* ]]; then
+              previous_version=$(git describe --tags --abbrev=0 --exclude="*[Aa][Ll][Pp][Hh][Aa]*" --exclude="*[Bb][Ee][Tt][Aa]*" HEAD~ 2>/dev/null || true)
+            else
+              previous_version=$(git describe --tags --abbrev=0 --exclude="*[Aa][Ll][Pp][Hh][Aa]*" HEAD~ 2>/dev/null || true)
+            fi
+          fi
+          ref="${tag:-$project_hash}"
+          if [ -n "$previous_version" ]; then
+            changelog_url="[Full Changelog](${project_github_url}/compare/${previous_version}...${ref})"
+            _changelog_range="${previous_version}..${ref}"
+          else
+            changelog_url="[Full Changelog](${project_github_url}/commits/${ref})"
+            _changelog_range="${ref}"
+          fi
+          changelog_version="[${project_version}](${project_github_url}/tree/${ref})"
+          changelog_previous="[Previous Releases](${project_github_url}/releases)"
+          {
+            echo "# ${project}"
+            echo ""
+            echo "## ${changelog_version} (${changelog_date})"
+            echo "${changelog_url} ${changelog_previous}"
+            echo ""
+            git log "$_changelog_range" --invert-grep --grep="^chore(curseforge):" --grep="^Update \(downloads\|stats\) \(tracking \)\?snapshot" --pretty=format:"###%B" -- . ":!stats" \
+              | sed -e 's/^/    /g' -e 's/^ *$//g' -e 's/^    ###/- /g' -e 's/$/  /' \
+                    -e 's/\([a-zA-Z0-9]\)_\([a-zA-Z0-9]\)/\1\\_\2/g' \
+                    -e 's/\[ci skip\]//g' -e 's/\[skip ci\]//g' \
+                    -e '/git-svn-id:/d' -e '/^[[:space:]]*This reverts commit [0-9a-f]\{40\}\.[[:space:]]*$/d' \
+                    -e '/^[[:space:]]*$/d'
+          } > CHANGELOG.md
+
       # once cloned, we just run the GitHub Action for the packager project
       - name: WoW Packager
         uses: BigWigsMods/packager@v2.6.1

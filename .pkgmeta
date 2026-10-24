@@ -1,5 +1,9 @@
 package-as: Bears_Audio_Switcher
 
+manual-changelog:
+    filename: CHANGELOG.md
+    markup-type: markdown
+
 ignore:
     - README.md
     - .github
@@ -8,6 +12,7 @@ ignore:
     - .gitignore
     - .gitattributes
     - .vscode/
+    - stats
 
 license-output: LICENSE
 

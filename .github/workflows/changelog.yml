@@ -44,9 +44,14 @@ jobs:
           import pathlib, re
           p = pathlib.Path
           existing = p("existing.md").read_text(encoding="utf-8") if p("existing.md").exists() else ""
-          existing = re.sub(r"<!-- changelog-start -->.*?<!-- changelog-end -->\n?", "", existing, flags=re.S).strip()
+          existing = re.sub(r"<!-- changelog-start -->.*?<!-- changelog-end -->\n?", "", existing, flags=re.S)
+          existing = re.sub(r"(?m)^-\s+(?:chore\(curseforge\):|Update\s+(?:downloads|stats)\s+(?:tracking\s+)?snapshot)[^\n]*\r?\n?", "", existing).strip()
           lines = p("generated.md").read_text(encoding="utf-8").splitlines()
-          kept = [l for l in lines if not re.match(r"^\*\s*Update\s+(?:downloads|stats)\s+(?:tracking\s+)?snapshot", l)]
+          kept = [
+              l for l in lines
+              if not re.match(r"^\*\s*(?:chore\(curseforge\):\s*)?[Uu]pdate\s+(?:downloads|stats)\s+(?:tracking\s+)?snapshot", l)
+              and not l.startswith("<!-- Release notes generated")
+          ]
           out = []
           i = 0
           while i < len(kept):
