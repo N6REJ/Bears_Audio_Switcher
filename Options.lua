@@ -19,13 +19,13 @@ end
 -- Set our options used in interface here
 BearsSwitcher.defaults = {
     profile = {
-        spkr1 = {}, -- default
-        spkr2 = {}, -- normally headset
-        toggle = GetBindingText("NUMPADMULTIPLY"), -- default keypress
-        music_toggle = GetBindingText("NUMPADDIVIDE"), -- default music keypress
+        spkr1 = 1, -- default (system/first output device)
+        spkr2 = 2, -- normally headset/second output device
+        toggle = "NUMPADMULTIPLY", -- default keypress
+        music_toggle = "NUMPADDIVIDE", -- default music keypress
         Devices = {},
-        volumeUp = GetBindingText("NUMPADPLUS"),
-        volumeDown = GetBindingText("NUMPADMINUS"),
+        volumeUp = "NUMPADPLUS",
+        volumeDown = "NUMPADMINUS",
         volumeSteps = 1,
         enableSound = true
     }

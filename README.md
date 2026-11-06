@@ -4,8 +4,8 @@
 [![Build Curse Release](https://github.com/N6REJ/Bears_Audio_Switcher/actions/workflows/release.yml/badge.svg)](https://github.com/N6REJ/Bears_Audio_Switcher/actions/workflows/release.yml)
 [![GitHub release](https://img.shields.io/github/release/N6REJ/Bears_Audio_Switcher.svg)](https://GitHub.com/N6REJ/Bears_Audio_Switcher/releases/)
 
-![Shadowlands](https://img.shields.io/badge/Supports-Retail&nbsp;&amp;&nbsp;Classic-0B68D7)
-![11.0.0](https://img.shields.io/badge/Ready_for-12.1.0-darkgreen)
+![Shadowlands](https://img.shields.io/badge/Supports-Retail&nbsp;&amp;&nbsp;Forever-0B68D7)
+![12.1.7](https://img.shields.io/badge/Ready_for-12.1.7-darkgreen)
 [![curse](https://img.shields.io/badge/Curseforge_Project_ID:-631148-purple)](https://www.curseforge.com/wow/addons/Bears_Audio_Switcher)
 
 
@@ -33,4 +33,3 @@ Also allows you to raise and lower the master volume via keybind.  This is usefu
 <img width="328" alt="config-change" src="https://user-images.githubusercontent.com/1850089/175459116-c95e84a8-fe0c-4f5b-a8e5-5b9691c0ca16.png">
 
 <img width="589" alt="image" src="https://github.com/N6REJ/Bears_Audio_Switcher/assets/1850089/a784f9c9-4258-474d-8bf5-e29ceb21e4b3">
-

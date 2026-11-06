@@ -1,3 +1,6 @@
+# Ace3 external libraries (fetched by the packager at release time)
+/Libs/
+
 # Jetbrains
 /*.iml
 /.idea

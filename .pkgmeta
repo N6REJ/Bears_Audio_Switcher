@@ -12,6 +12,8 @@ ignore:
     - .gitignore
     - .gitattributes
     - .vscode/
+    - .idea
+    - AGENTS.md
     - stats
 
 license-output: LICENSE

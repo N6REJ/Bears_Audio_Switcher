@@ -31,15 +31,16 @@ function BearsSwitcher:OnInitialize()
 
     -- https://www.wowace.com/projects/ace3/pages/api/ace-console-3-0
     self:RegisterChatCommand("bs", "SlashCommand")
+    self:RegisterChatCommand("bas", "SlashCommand")
     self:RegisterChatCommand("switcher", "SlashCommand")
 
     -- We need to set some defaults to use if they've not set things up before.
     local defaults = {
-        volumeUp = GetBindingText("NUMPADPLUS"),
-        volumeDown = GetBindingText("NUMPADMINUS"),
+        volumeUp = "NUMPADPLUS",
+        volumeDown = "NUMPADMINUS",
         volumeSteps = 1,
-        toggle = GetBindingText("NUMPADMULTIPLY"),
-        music_toggle = GetBindingText("NUMPADDIVIDE"),
+        toggle = "NUMPADMULTIPLY",
+        music_toggle = "NUMPADDIVIDE",
         enableSound = true
     }
 
