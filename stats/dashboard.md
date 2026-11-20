@@ -40,11 +40,11 @@ Charts are generated on the first run. Customize them freely; only the data tabl
 
 | Metric | Value |
 |---|---|
-| Total | 6,230 |
+| Total | 6,235 |
 | Day | 5 |
-| Week | 47 |
-| Month | 192 |
-| Year | 209 (partial) |
+| Week | 52 |
+| Month | 197 |
+| Year | 214 (partial) |
 
 | Field | Value |
 |---|---|
@@ -53,9 +53,9 @@ Charts are generated on the first run. Customize them freely; only the data tabl
 | Update mode | daily |
 | Period | week `2026-W47`, month `Nov 2026`, year `2026` |
 | Window | 365 days |
-| Snapshots | 31 |
+| Snapshots | 32 |
 | Partial | year |
-| Generated at | `2026-11-19T12:28:55.340Z` |
+| Generated at | `2026-11-20T12:29:00.415Z` |
 
 Source data: [`stats/downloads.json`](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/downloads.json)
 
