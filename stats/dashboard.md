@@ -40,22 +40,22 @@ Charts are generated on the first run. Customize them freely; only the data tabl
 
 | Metric | Value |
 |---|---|
-| Total | 6,247 |
-| Day | 7 |
-| Week | 64 |
-| Month | 209 |
-| Year | 226 (partial) |
+| Total | 6,256 |
+| Day | 9 |
+| Week | 0 |
+| Month | 218 |
+| Year | 235 (partial) |
 
 | Field | Value |
 |---|---|
 | Repository | `N6REJ/Bears_Audio_Switcher` |
 | CurseForge mod id | `631148` |
 | Update mode | daily |
-| Period | week `2026-W47`, month `Nov 2026`, year `2026` |
+| Period | week `2026-W48`, month `Nov 2026`, year `2026` |
 | Window | 365 days |
-| Snapshots | 34 |
+| Snapshots | 35 |
 | Partial | year |
-| Generated at | `2026-11-22T12:16:06.633Z` |
+| Generated at | `2026-11-23T13:59:48.084Z` |
 
 Source data: [`stats/downloads.json`](https://raw.githubusercontent.com/N6REJ/Bears_Audio_Switcher/main/stats/downloads.json)
 
